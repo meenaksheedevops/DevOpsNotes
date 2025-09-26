@@ -348,3 +348,15 @@ job.batch/mongo-init created
 NAME                               STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS        VOLUMEATTRIBUTESCLASS   AGE
 mongo-persistent-storage-mongo-0   Bound    pvc-99a08b88-9842-4ddd-a0b3-ec07ad43c906   1Gi        RWO            ebs-storage-class   <unset>                 25s
 [root@ip-172-31-33-115 K8s-MERN-App-Deployment]# 
+[root@ip-172-31-33-115 K8s-MERN-App-Deployment]# kubectl get pv
+NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                                      STORAGECLASS        VOLUMEATTRIBUTESCLASS   REASON   AGE
+pvc-873c9a27-8a82-46f8-9ad1-7fe92a211100   1Gi        RWO            Retain           Bound    default/mongo-persistent-storage-mongo-2   ebs-storage-class   <unset>                          21s
+pvc-99a08b88-9842-4ddd-a0b3-ec07ad43c906   1Gi        RWO            Retain           Bound    default/mongo-persistent-storage-mongo-0   ebs-storage-class   <unset>                          77s
+pvc-e83fb557-3ebc-4940-a905-c7bf15156fb2   1Gi        RWO            Retain           Bound    default/mongo-persistent-storage-mongo-1   ebs-storage-class   <unset>                          41s
+[root@ip-172-31-33-115 K8s-MERN-App-Deployment]# kubectl get pod
+NAME               READY   STATUS      RESTARTS   AGE
+mongo-0            1/1     Running     0          106s
+mongo-1            1/1     Running     0          69s
+mongo-2            1/1     Running     0          50s
+mongo-init-xlvp9   0/1     Completed   0          106s
+[root@ip-172-31-33-115 K8s-MERN-App-Deployment]# 
