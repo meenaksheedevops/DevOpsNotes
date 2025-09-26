@@ -336,3 +336,15 @@ kube-proxy-b5kc4                      1/1     Running   0          65m
 metrics-server-5775b55498-cscmx       1/1     Running   0          79m
 metrics-server-5775b55498-gmvhq       1/1     Running   0          79m
 [root@ip-172-31-33-115 K8s-MERN-App-Deployment]# 
+[root@ip-172-31-33-115 K8s-MERN-App-Deployment]# kubectl apply -f secret.yml 
+secret/mongo-secret created
+[root@ip-172-31-33-115 K8s-MERN-App-Deployment]# kubectl apply -f storageclass.yml 
+storageclass.storage.k8s.io/ebs-storage-class created
+[root@ip-172-31-33-115 K8s-MERN-App-Deployment]# kubectl apply -f mongo-app.yml 
+statefulset.apps/mongo created
+service/mongo created
+job.batch/mongo-init created
+[root@ip-172-31-33-115 K8s-MERN-App-Deployment]# kubectl get pvc
+NAME                               STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS        VOLUMEATTRIBUTESCLASS   AGE
+mongo-persistent-storage-mongo-0   Bound    pvc-99a08b88-9842-4ddd-a0b3-ec07ad43c906   1Gi        RWO            ebs-storage-class   <unset>                 25s
+[root@ip-172-31-33-115 K8s-MERN-App-Deployment]# 
