@@ -286,3 +286,23 @@ Resolving deltas: 100% (39/39), done.
  CommandHistory.sh                 'Session ScreenShots'      mongo-config.yml           storageclass.yml
  CommandHistoryEKS-Statefulset.sh   create-db-user-job.yaml   mongo-express-webapp.yml   vpa.yml
 [root@ip-172-31-33-115 K8s-MERN-App-Deployment]#
+[root@ip-172-31-33-115 K8s-MERN-App-Deployment]# kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/ecr/?ref=release-1.4"
+# Warning: 'bases' is deprecated. Please use 'resources' instead. Run 'kustomize edit fix' to update your Kustomization automatically.
+serviceaccount/ebs-csi-controller-sa created
+serviceaccount/ebs-csi-node-sa created
+clusterrole.rbac.authorization.k8s.io/ebs-csi-node-role created
+clusterrole.rbac.authorization.k8s.io/ebs-external-attacher-role created
+clusterrole.rbac.authorization.k8s.io/ebs-external-provisioner-role created
+clusterrole.rbac.authorization.k8s.io/ebs-external-resizer-role created
+clusterrole.rbac.authorization.k8s.io/ebs-external-snapshotter-role created
+clusterrolebinding.rbac.authorization.k8s.io/ebs-csi-attacher-binding created
+clusterrolebinding.rbac.authorization.k8s.io/ebs-csi-node-getter-binding created
+clusterrolebinding.rbac.authorization.k8s.io/ebs-csi-provisioner-binding created
+clusterrolebinding.rbac.authorization.k8s.io/ebs-csi-resizer-binding created
+clusterrolebinding.rbac.authorization.k8s.io/ebs-csi-snapshotter-binding created
+deployment.apps/ebs-csi-controller created
+daemonset.apps/ebs-csi-node created
+csidriver.storage.k8s.io/ebs.csi.aws.com created
+error: resource mapping not found for name: "ebs-csi-controller" namespace: "kube-system" from "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/ecr/?ref=release-1.4": no matches for kind "PodDisruptionBudget" in version "policy/v1beta1"
+ensure CRDs are installed first
+[root@ip-172-31-33-115 K8s-MERN-App-Deployment]# 
