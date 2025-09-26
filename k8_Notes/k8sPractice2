@@ -365,3 +365,7 @@ NAME                PROVISIONER             RECLAIMPOLICY   VOLUMEBINDINGMODE   
 ebs-storage-class   ebs.csi.aws.com         Retain          WaitForFirstConsumer   false                  3m30s
 gp2                 kubernetes.io/aws-ebs   Delete          WaitForFirstConsumer   false                  88m
 [root@ip-172-31-33-115 K8s-MERN-App-Deployment]# 
+[root@ip-172-31-33-115 K8s-MERN-App-Deployment]# kubectl get statefulset
+NAME    READY   AGE
+mongo   3/3     3m37s
+[root@ip-172-31-33-115 K8s-MERN-App-Deployment]# 
