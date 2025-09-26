@@ -321,3 +321,18 @@ kube-proxy-b5kc4                      1/1     Running   0          64m
 metrics-server-5775b55498-cscmx       1/1     Running   0          78m
 metrics-server-5775b55498-gmvhq       1/1     Running   0          78m
 [root@ip-172-31-33-115 K8s-MERN-App-Deployment]# 
+[root@ip-172-31-33-115 K8s-MERN-App-Deployment]# kubectl get pods -n kube-system
+NAME                                  READY   STATUS    RESTARTS   AGE
+aws-node-bwv4f                        2/2     Running   0          65m
+aws-node-x7zdt                        2/2     Running   0          65m
+coredns-6799d65cb-bhm5z               1/1     Running   0          79m
+coredns-6799d65cb-tdnp7               1/1     Running   0          79m
+ebs-csi-controller-6c6cd7b87d-m92wg   6/6     Running   0          102s
+ebs-csi-controller-6c6cd7b87d-nqk7c   6/6     Running   0          102s
+ebs-csi-node-2jccx                    3/3     Running   0          102s
+ebs-csi-node-kwnzs                    3/3     Running   0          102s
+kube-proxy-6l2pv                      1/1     Running   0          65m
+kube-proxy-b5kc4                      1/1     Running   0          65m
+metrics-server-5775b55498-cscmx       1/1     Running   0          79m
+metrics-server-5775b55498-gmvhq       1/1     Running   0          79m
+[root@ip-172-31-33-115 K8s-MERN-App-Deployment]# 
