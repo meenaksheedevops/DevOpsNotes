@@ -271,3 +271,12 @@ Installed:
 
 Complete!
 [root@ip-172-31-33-115 /]# 
+[root@ip-172-31-33-115 /]# git clone https://github.com/meenaksheedevops/K8s-MERN-App-Deployment.git
+Cloning into 'K8s-MERN-App-Deployment'...
+remote: Enumerating objects: 92, done.
+remote: Counting objects: 100% (92/92), done.
+remote: Compressing objects: 100% (74/74), done.
+remote: Total 92 (delta 39), reused 53 (delta 16), pack-reused 0 (from 0)
+Receiving objects: 100% (92/92), 820.67 KiB | 2.82 MiB/s, done.
+Resolving deltas: 100% (39/39), done.
+[root@ip-172-31-33-115 /]# 
