@@ -1,2 +1,88 @@
 https://docs.aws.amazon.com/eks/latest/userguide/setting-up.html
+Kubernetes Setup Details with Output
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+[root@ip-172-31-46-160 /]# curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.30.14/2025-09-19/bin/linux/amd64/kubectl
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 49.5M  100 49.5M    0     0  7874k      0  0:00:06  0:00:06 --:--:-- 12.3M
+[root@ip-172-31-46-160 /]# ls
+bin  boot  dev  etc  home  kubectl  lib  lib64  local  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+[root@ip-172-31-46-160 /]# ARCH=amd64
+[root@ip-172-31-46-160 /]# PLATFORM=$(uname -s)_$ARCH
+[root@ip-172-31-46-160 /]# curl -sLO "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_$PLATFORM.tar.gz"
+[root@ip-172-31-46-160 /]# curl -sL "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_checksums.txt" | grep $PLATFORM | sha256sum --check
+eksctl_Linux_amd64.tar.gz: OK
+[root@ip-172-31-46-160 /]# tar -xzf eksctl_$PLATFORM.tar.gz -C /tmp && rm eksctl_$PLATFORM.tar.gz
+rm: remove regular file 'eksctl_Linux_amd64.tar.gz'? y
+[root@ip-172-31-46-160 /]# ls
+bin  boot  dev  etc  home  kubectl  lib  lib64  local  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+[root@ip-172-31-46-160 /]# sudo mv /tmp/eksctl /usr/local/bin
+[root@ip-172-31-46-160 /]# eksctl
+The official CLI for Amazon EKS
+
+Usage: eksctl [command] [flags]
+
+Commands:
+  eksctl anywhere                        EKS anywhere
+  eksctl associate                       Associate resources with a cluster
+  eksctl completion                      Generates shell completion scripts for bash, zsh or fish
+  eksctl create                          Create resource(s)
+  eksctl delete                          Delete resource(s)
+  eksctl deregister                      Deregister a non-EKS cluster
+  eksctl disassociate                    Disassociate resources from a cluster
+  eksctl drain                           Drain resource(s)
+  eksctl enable                          Enable features in a cluster
+  eksctl get                             Get resource(s)
+  eksctl help                            Help about any command
+  eksctl info                            Output the version of eksctl, kubectl and OS info
+  eksctl register                        Register a non-EKS cluster
+  eksctl scale                           Scale resources(s)
+  eksctl set                             Set values
+  eksctl unset                           Unset values
+  eksctl update                          Update resource(s)
+  eksctl upgrade                         Upgrade resource(s)
+  eksctl utils                           Various utils
+  eksctl version                         Output the version of eksctl
+
+Common flags:
+  -C, --color string   toggle colorized logs (valid options: true, false, fabulous) (default "true")
+  -d, --dumpLogs       dump logs to disk on failure if set to true
+  -h, --help           help for this command
+  -v, --verbose int    set log level, use 0 to silence, 4 for debugging and 5 for debugging with AWS debug logging (default 3)
+
+Use 'eksctl [command] --help' for more information about a command.
+
+
+For detailed docs go to https://eksctl.io/
+
+[root@ip-172-31-46-160 /]# 
+[root@ip-172-31-46-160 /]# ls
+bin  boot  dev  etc  home  kubectl  lib  lib64  local  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+[root@ip-172-31-46-160 /]# chmod +x kubectl
+[root@ip-172-31-46-160 /]# cp kubectl /usr/bin/
+[root@ip-172-31-46-160 /]# 
+[root@ip-172-31-46-160 /]# eksctl create cluster --name=EKS-1 --region=ap-south-1 --zones=ap-south-1a,ap-south-1b --without-nodegroup 
+2025-09-26 08:36:05 [ℹ]  eksctl version 0.214.0
+2025-09-26 08:36:05 [ℹ]  using region ap-south-1
+2025-09-26 08:36:05 [ℹ]  subnets for ap-south-1a - public:192.168.0.0/19 private:192.168.64.0/19
+2025-09-26 08:36:05 [ℹ]  subnets for ap-south-1b - public:192.168.32.0/19 private:192.168.96.0/19
+2025-09-26 08:36:05 [ℹ]  using Kubernetes version 1.32
+2025-09-26 08:36:05 [ℹ]  creating EKS cluster "EKS-1" in "ap-south-1" region with 
+2025-09-26 08:36:05 [ℹ]  if you encounter any issues, check CloudFormation console or try 'eksctl utils describe-stacks --region=ap-south-1 --cluster=EKS-1'
+2025-09-26 08:36:05 [ℹ]  Kubernetes API endpoint access will use default of {publicAccess=true, privateAccess=false} for cluster "EKS-1" in "ap-south-1"
+2025-09-26 08:36:05 [ℹ]  CloudWatch logging will not be enabled for cluster "EKS-1" in "ap-south-1"
+2025-09-26 08:36:05 [ℹ]  you can enable it with 'eksctl utils update-cluster-logging --enable-types={SPECIFY-YOUR-LOG-TYPES-HERE (e.g. all)} --region=ap-south-1 --cluster=EKS-1'
+2025-09-26 08:36:05 [ℹ]  default addons coredns, metrics-server, vpc-cni, kube-proxy were not specified, will install them as EKS addons
+2025-09-26 08:36:05 [ℹ]  
+2 sequential tasks: { create cluster control plane "EKS-1", 
+    2 sequential sub-tasks: { 
+        1 task: { create addons },
+        wait for control plane to become ready,
+    } 
+}
+2025-09-26 08:36:05 [ℹ]  building cluster stack "eksctl-EKS-1-cluster"
+2025-09-26 08:36:05 [ℹ]  deploying stack "eksctl-EKS-1-cluster"
+2025-09-26 08:36:35 [ℹ]  waiting for CloudFormation stack "eksctl-EKS-1-cluster"
+2025-09-26 08:37:05 [ℹ]  waiting for CloudFormation stack "eksctl-EKS-1-cluster"
 
