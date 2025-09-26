@@ -129,3 +129,10 @@ Error: unable to describe cluster control plane: operation error EKS: DescribeCl
 2025-09-26 13:06:59 [ℹ]  kubectl command should work with "/root/.kube/config", try 'kubectl get nodes'
 2025-09-26 13:06:59 [✔]  EKS cluster "EKS-2" in "ap-south-1" region is ready
 [root@ip-172-31-33-115 /]# 
+[root@ip-172-31-33-115 /]# eksctl utils associate-iam-oidc-provider \
+    --region ap-south-1 \
+    --cluster EKS-2 \
+    --approve
+2025-09-26 13:14:49 [ℹ]  will create IAM Open ID Connect provider for cluster "EKS-2" in "ap-south-1"
+2025-09-26 13:14:49 [✔]  created IAM Open ID Connect provider for cluster "EKS-2" in "ap-south-1"
+[root@ip-172-31-33-115 /]# 
