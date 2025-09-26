@@ -181,3 +181,6 @@ Error: unable to describe cluster control plane: operation error EKS: DescribeCl
 2025-09-26 13:20:09 [ℹ]  checking security group configuration for all nodegroups
 2025-09-26 13:20:09 [ℹ]  all nodegroups have up-to-date cloudformation templates
 [root@ip-172-31-33-115 /]# 
+[root@ip-172-31-33-115 /]# kubectl get pods
+No resources found in default namespace.
+[root@ip-172-31-33-115 /]# 
