@@ -280,3 +280,9 @@ remote: Total 92 (delta 39), reused 53 (delta 16), pack-reused 0 (from 0)
 Receiving objects: 100% (92/92), 820.67 KiB | 2.82 MiB/s, done.
 Resolving deltas: 100% (39/39), done.
 [root@ip-172-31-33-115 /]# 
+[root@ip-172-31-33-115 /]# cd K8s-MERN-App-Deployment/
+[root@ip-172-31-33-115 K8s-MERN-App-Deployment]# ls
+ ArchitectureDiagram.png            README.md                 mongo-app.yml              secret.yml         webapp-service.yml
+ CommandHistory.sh                 'Session ScreenShots'      mongo-config.yml           storageclass.yml
+ CommandHistoryEKS-Statefulset.sh   create-db-user-job.yaml   mongo-express-webapp.yml   vpa.yml
+[root@ip-172-31-33-115 K8s-MERN-App-Deployment]#
