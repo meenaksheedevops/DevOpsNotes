@@ -184,3 +184,25 @@ Error: unable to describe cluster control plane: operation error EKS: DescribeCl
 [root@ip-172-31-33-115 /]# kubectl get pods
 No resources found in default namespace.
 [root@ip-172-31-33-115 /]# 
+[root@ip-172-31-33-115 /]# kubectl -n kube-system describe configmap aws-auth
+Name:         aws-auth
+Namespace:    kube-system
+Labels:       <none>
+Annotations:  <none>
+
+Data
+====
+mapRoles:
+----
+- rolearn: arn:aws:iam::889818959566:role/eksctl-EKS-2-nodegroup-node2-NodeInstanceRole-CC9lDlYrWN8I
+  groups:
+  - system:bootstrappers
+  - system:nodes
+  username: system:node:{{EC2PrivateDNSName}}
+
+
+BinaryData
+====
+
+Events:  <none>
+[root@ip-172-31-33-115 /]# 
