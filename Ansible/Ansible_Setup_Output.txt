@@ -154,3 +154,9 @@ Su Mo Tu We Th Fr Sa
 28 29 30            
                     
 [root@ip-172-31-43-118 /]# 
+[root@ip-172-31-43-118 /]# ansible all -m command -a "yum install nginx -y "
+[WARNING]: Platform linux on host 3.111.213.21 is using the discovered Python interpreter at /usr/bin/python3.9, but future installation of another Python interpreter
+could change the meaning of that path. See https://docs.ansible.com/ansible-core/2.15/reference_appendices/interpreter_discovery.html for more information.
+3.111.213.21 | FAILED | rc=1 >>
+Error: This command has to be run with superuser privileges (under the root user on most systems).non-zero return code
+[root@ip-172-31-43-118 /]# 
