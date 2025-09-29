@@ -96,3 +96,8 @@ ansible [core 2.15.3]
 [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
   hosts (0):
 [root@ip-172-31-43-118 /]# 
+
+
+***************************** Modify ansible.cfg file below line and save it ********************************************
+
+inventory=/inventory
