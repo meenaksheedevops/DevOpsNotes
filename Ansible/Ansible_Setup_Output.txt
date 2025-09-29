@@ -116,3 +116,20 @@ inventory=/inventory
 host_key_checking=False
 
 ****************************************************************************************************************************
+
+[root@ip-172-31-43-118 /]# ansible all -m command -a "date"
+The authenticity of host '3.111.213.21 (3.111.213.21)' can't be established.
+ED25519 key fingerprint is SHA256:548UP/GPsYjoJRm0a7vhFs6+1naNKxjF4KZAU9EvCKA.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+3.111.213.21 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: Warning: Permanently added '3.111.213.21' (ED25519) to the list of known hosts.\r\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\r\n@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @\r\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\r\nPermissions 0644 for 'key.pem' are too open.\r\nIt is required that your private key files are NOT accessible by others.\r\nThis private key will be ignored.\r\nLoad key \"key.pem\": bad permissions\r\nec2-user@3.111.213.21: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).",
+    "unreachable": true
+}
+[root@ip-172-31-43-118 /]# vi inventory 
+[root@ip-172-31-43-118 /]# vi ansible.cfg 
+[root@ip-172-31-43-118 /]# ls -l key.pem 
+-rw-r--r--. 1 root root 1679 Sep 29 15:28 key.pem
+[root@ip-172-31-43-118 /]# chmod 400 key.pem
+[root@ip-172-31-43-118 /]# 
