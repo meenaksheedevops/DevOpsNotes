@@ -554,3 +554,36 @@ PLAY RECAP *********************************************************************
 3.111.38.10                : ok=4    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 
 [root@ip-172-31-3-38 /]# 
+
+
+*************************************************************************************************************************************************************
+* Note : You can verify in Target node terminal i.e terminal 2 using below commands
+*************************************************************************************************************************************************************
+
+[root@ip-172-31-8-199 html]# netstat -tnlp
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      1589/sshd: /usr/sbi 
+tcp6       0      0 :::22                   :::*                    LISTEN      1589/sshd: /usr/sbi 
+tcp6       0      0 :::80                   :::*                    LISTEN      35657/httpd         
+[root@ip-172-31-8-199 html]# systemctl status httpd
+● httpd.service - The Apache HTTP Server
+     Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; preset: disabled)
+     Active: active (running) since Fri 2025-10-03 09:50:07 UTC; 2min 54s ago
+       Docs: man:httpd.service(8)
+   Main PID: 35657 (httpd)
+     Status: "Total requests: 0; Idle/Busy workers 100/0;Requests/sec: 0; Bytes served/sec:   0 B/sec"
+      Tasks: 177 (limit: 1053)
+     Memory: 13.3M
+        CPU: 218ms
+     CGroup: /system.slice/httpd.service
+             ├─35657 /usr/sbin/httpd -DFOREGROUND
+             ├─35658 /usr/sbin/httpd -DFOREGROUND
+             ├─35659 /usr/sbin/httpd -DFOREGROUND
+             ├─35660 /usr/sbin/httpd -DFOREGROUND
+             └─35661 /usr/sbin/httpd -DFOREGROUND
+
+Oct 03 09:50:07 ip-172-31-8-199.ap-south-1.compute.internal systemd[1]: Starting httpd.service - The Apache HTTP Server...
+Oct 03 09:50:07 ip-172-31-8-199.ap-south-1.compute.internal systemd[1]: Started httpd.service - The Apache HTTP Server.
+Oct 03 09:50:07 ip-172-31-8-199.ap-south-1.compute.internal httpd[35657]: Server configured, listening on: port 80
+[root@ip-172-31-8-199 html]# 
