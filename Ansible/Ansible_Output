@@ -293,3 +293,19 @@ nginx-1.28.0-1.amzn2023.0.2.x86_64
 * These files will be used multiple times and we can share this info with others etc
 *************************************************************************************************************************************************
 
+** Go to terminal 1 and do below items************************************************************************************************************
+
+[root@ip-172-31-3-38 /]# vi httpd.yml
+[root@ip-172-31-3-38 /]# cat httpd.yml 
+- hosts: all
+  tasks:
+    - name: "Install httpd package"
+      package:
+        name: "httpd"
+        state: present
+
+    - name: "Copy webpages"
+      copy: 
+        src: /index.html
+[root@ip-172-31-3-38 /]# vi index.html
+[root@ip-172-31-3-38 /]# 
