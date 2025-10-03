@@ -658,3 +658,17 @@ key_pair: gfgdevops
 name: Aws-AnsibleLaunchedEC2
 
 [root@ip-172-31-3-38 /]# 
+
+
+[root@ip-172-31-3-38 /]# ansible-playbook create_instance.yml 
+ERROR! conflicting action statements: community.aws.ec2_instance, aws_access_key
+
+The error appears to be in '/create_instance.yml': line 11, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+        name: boto3
+    - community.aws.ec2_instance:
+      ^ here
+[root@ip-172-31-3-38 /]#
