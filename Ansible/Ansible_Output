@@ -593,7 +593,22 @@ Oct 03 09:50:07 ip-172-31-8-199.ap-south-1.compute.internal httpd[35657]: Server
 * Under Ansible folder
 **************************************************************************************************************************************************
 
-
 ************************************************ Documentation **************************************************************
 *  https://docs.ansible.com/ansible/latest/collections/amazon/aws/ec2_instance_module.html
 ********************************************************************************************************************************
+
+***Usecase *****************************************************************************************************************************
+* create aws_credential.yml and write below things and save the file and encrypt this file using ansible-vault
+****************************************************************************************************************************************
+
+aws_access_key: your_aws_access_key
+aws_secret_key: your_aws_secret_key
+
+
+[root@ip-172-31-3-38 /]# ansible-vault encrypt aws_credential.yml 
+New Vault password: 
+Confirm New Vault password: 
+Encryption successful
+[root@ip-172-31-3-38 /]# 
+
+
