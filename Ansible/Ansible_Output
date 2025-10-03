@@ -83,3 +83,10 @@ ansible [core 2.15.3]
   jinja version = 3.1.4
   libyaml = True
 [root@ip-172-31-3-38 /]# 
+***************************************************************************************************************************************
+*   Note : Here create a file name key.pem and copy the key on which you have created the ec2 user and create another file inventory
+*  Paste the public ip of the target node and other details
+*****************************************************************************************************************************************
+
+
+
