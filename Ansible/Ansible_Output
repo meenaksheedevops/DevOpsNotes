@@ -400,3 +400,22 @@ PLAY RECAP *********************************************************************
 3.111.38.10                : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 
 [root@ip-172-31-3-38 /]# 
+
+*******************************************************************************************************************************************
+**   Terminal -2 i.e in Target node , httpd is installed and index.html is copied
+*******************************************************************************************************************************************
+
+
+[root@ip-172-31-8-199 /]# rpm -q nginx
+nginx-1.28.0-1.amzn2023.0.2.x86_64
+[root@ip-172-31-8-199 /]# ls
+bin  boot  dev  etc  home  lib  lib64  local  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+[root@ip-172-31-8-199 /]# rpm -q httpd
+httpd-2.4.65-1.amzn2023.0.1.x86_64
+[root@ip-172-31-8-199 /]# cd /var/www/html
+[root@ip-172-31-8-199 html]# ls
+index.html
+[root@ip-172-31-8-199 html]# 
+
+
+
