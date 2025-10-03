@@ -360,3 +360,24 @@ PLAY RECAP *********************************************************************
 3.111.38.10                : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
 
 [root@ip-172-31-3-38 /]# 
+
+**************************************** above playbook failed because of root permission , so modify httpd.yml to provide privilege***************************
+
+[root@ip-172-31-3-38 /]# vi httpd.yml
+[root@ip-172-31-3-38 /]# cat httpd.yml 
+- hosts: all
+  become: true
+  tasks:
+    - name: "Install httpd package"
+      package:
+        name: "httpd"
+        state: present
+
+    - name: "Copy webpages"
+      copy: 
+        src: /index.html
+        dest: /var/www/html
+        owner: root
+        group: root
+[root@ip-172-31-3-38 /]# 
+
