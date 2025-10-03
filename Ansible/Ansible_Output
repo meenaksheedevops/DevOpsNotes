@@ -485,3 +485,27 @@ PLAY RECAP *********************************************************************
         state: started
         enable: yes
 [root@ip-172-31-3-38 /]# 
+[root@ip-172-31-3-38 /]# ansible-playbook httpd.yml 
+
+PLAY [all] ************************************************************************************************************************************************************
+
+TASK [Gathering Facts] ************************************************************************************************************************************************
+[WARNING]: Platform linux on host 3.111.38.10 is using the discovered Python interpreter at /usr/bin/python3.9, but future installation of another Python interpreter
+could change the meaning of that path. See https://docs.ansible.com/ansible-core/2.15/reference_appendices/interpreter_discovery.html for more information.
+ok: [3.111.38.10]
+
+TASK [Install httpd package] ******************************************************************************************************************************************
+ok: [3.111.38.10]
+
+TASK [Copy webpages] **************************************************************************************************************************************************
+ok: [3.111.38.10]
+
+TASK [Start server] ***************************************************************************************************************************************************
+fatal: [3.111.38.10]: FAILED! => {"changed": false, "msg": "Unsupported parameters for (ansible.legacy.systemd) module: enable. Supported parameters include: daemon_reexec, daemon_reload, enabled, force, masked, name, no_block, scope, state (daemon-reexec, daemon-reload, service, unit)."}
+
+PLAY RECAP ************************************************************************************************************************************************************
+3.111.38.10                : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+
+[root@ip-172-31-3-38 /]# 
+
+************************************************* It is failed so modify the httpd.yml *****************************************************
