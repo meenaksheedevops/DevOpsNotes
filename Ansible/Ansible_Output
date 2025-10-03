@@ -617,3 +617,44 @@ Encryption successful
 
 [root@ip-172-31-3-38 /]# ansible-vault view aws_credential.yml 
 Vault password: 
+
+************************* create two files as shown below ****************************************************************************
+[root@ip-172-31-3-38 /]# cat create_instance.yml 
+- hosts: localhost
+  vars_files:
+    - aws_credential.yml
+    - instance_vars.yml
+  tasks:
+    - package:
+        name: python3-pip
+        state: present
+    - pip:
+        name: boto3
+    - community.aws.ec2_instance:
+      aws_access_key: "{{ aws_access_key }}"
+      aws_secret_key: "{{ aws_secret_key }}"
+      region: "{{ aws_region }}"
+      tags:
+        Name: "{{ name }}"
+      key_name: "{{ key_pair }}"
+      instance_type: " {{ instance_type }}"
+      image_id: "{{ aws_image }}"
+      vpc_subnet_id: "{{ subnet }}"
+      network:
+        assign_public_ip: true
+        security_group: default
+      count: "{{ count }}"
+[root@ip-172-31-3-38 /]# ls
+ansible.cfg         bin   create_instance.yml  etc   httpd.yml   instance_vars.yml  key.pem  lib64  media  opt   root  sbin  sys  usr
+aws_credential.yml  boot  dev                  home  index.html  inventory          lib      local  mnt    proc  run   srv   tmp  var
+[root@ip-172-31-3-38 /]# cat instance_vars.yml 
+aws_region: ap-south-1
+instance_type: t3.micro
+aws_image: "ami-0f9708d1cd2cfee41"
+count: 1
+subnet: subnet-0f2f4ae536f8f41b9
+security_group: default
+key_pair: gfgdevops
+name: Aws-AnsibleLaunchedEC2
+
+[root@ip-172-31-3-38 /]# 
