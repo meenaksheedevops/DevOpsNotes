@@ -611,4 +611,9 @@ Confirm New Vault password:
 Encryption successful
 [root@ip-172-31-3-38 /]# 
 
+** Now if you open and view aws_credential.yml the file is in encrypted format *******************************************************
+* to view the file use below command , provide the password to view the file content
+**********************************************************************************************************************************
 
+[root@ip-172-31-3-38 /]# ansible-vault view aws_credential.yml 
+Vault password: 
