@@ -139,3 +139,16 @@ could change the meaning of that path. See https://docs.ansible.com/ansible-core
 3.111.38.10 | CHANGED | rc=0 >>
 Fri Oct  3 07:29:30 UTC 2025
 [root@ip-172-31-3-38 /]# 
+[root@ip-172-31-3-38 /]# ansible all -m command -a "cal"
+[WARNING]: Platform linux on host 3.111.38.10 is using the discovered Python interpreter at /usr/bin/python3.9, but future installation of another Python interpreter
+could change the meaning of that path. See https://docs.ansible.com/ansible-core/2.15/reference_appendices/interpreter_discovery.html for more information.
+3.111.38.10 | CHANGED | rc=0 >>
+    October 2025    
+Su Mo Tu We Th Fr Sa
+          1  2  3  4
+ 5  6  7  8  9 10 11
+12 13 14 15 16 17 18
+19 20 21 22 23 24 25
+26 27 28 29 30 31   
+                    
+[root@ip-172-31-3-38 /]# 
