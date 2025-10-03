@@ -153,6 +153,7 @@ Su Mo Tu We Th Fr Sa
                     
 [root@ip-172-31-3-38 /]# 
 
+##  Terminal 2 Output
 
 *******************  To demonstrate ansible , logon to the target node in the other terminal ***********************************
    ,     #_
