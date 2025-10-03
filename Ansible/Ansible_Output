@@ -438,4 +438,25 @@ PLAY RECAP *********************************************************************
 
 [root@ip-172-31-3-38 /]# 
 
+** Usecase - modify index.html and save it and run the command again. ***********************************************************************************
+[root@ip-172-31-3-38 /]# vi index.html 
+[root@ip-172-31-3-38 /]# ansible-playbook httpd.yml 
+
+PLAY [all] ************************************************************************************************************************************************************
+
+TASK [Gathering Facts] ************************************************************************************************************************************************
+[WARNING]: Platform linux on host 3.111.38.10 is using the discovered Python interpreter at /usr/bin/python3.9, but future installation of another Python interpreter
+could change the meaning of that path. See https://docs.ansible.com/ansible-core/2.15/reference_appendices/interpreter_discovery.html for more information.
+ok: [3.111.38.10]
+
+TASK [Install httpd package] ******************************************************************************************************************************************
+ok: [3.111.38.10]
+
+TASK [Copy webpages] **************************************************************************************************************************************************
+changed: [3.111.38.10]
+
+PLAY RECAP ************************************************************************************************************************************************************
+3.111.38.10                : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+[root@ip-172-31-3-38 /]# 
 
