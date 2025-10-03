@@ -288,3 +288,8 @@ Complete!
 nginx-1.28.0-1.amzn2023.0.2.x86_64
 [root@ip-172-31-8-199 /]# 
 
+*********************************************************************************************************************************************
+* Instead of providing the command information , ansible uses playbook because in real world configuration files will be complex
+* These files will be used multiple times and we can share this info with others etc
+*************************************************************************************************************************************************
+
