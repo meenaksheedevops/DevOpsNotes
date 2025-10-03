@@ -751,3 +751,7 @@ ansible.builtin.yum_repository         Add or remove YUM repositories
 DEPRECATED:
 ansible.builtin.include                Include a task list                                                                                                        
 [root@ip-172-31-3-38 /]# 
+
+**** in ansible uses galaxy to install modules ************************************************************************************
+*  https://galaxy.ansible.com/ui/repo/published/community/aws
+************************************************************************************************************************************
