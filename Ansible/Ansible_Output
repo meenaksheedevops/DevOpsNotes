@@ -152,3 +152,24 @@ Su Mo Tu We Th Fr Sa
 26 27 28 29 30 31   
                     
 [root@ip-172-31-3-38 /]# 
+
+
+*******************  To demonstrate ansible , logon to the target node in the other terminal ***********************************
+   ,     #_
+   ~\_  ####_        Amazon Linux 2023
+  ~~  \_#####\
+  ~~     \###|
+  ~~       \#/ ___   https://aws.amazon.com/linux/amazon-linux-2023
+   ~~       V~' '->
+    ~~~         /
+      ~~._.   _/
+         _/ _/
+       _/m/'
+Last login: Fri Oct  3 07:30:08 2025 from 3.110.168.215
+[ec2-user@ip-172-31-8-199 ~]$ sudo su root
+[root@ip-172-31-8-199 ec2-user]# cd /
+[root@ip-172-31-8-199 /]# rpm -q nginx
+package nginx is not installed
+[root@ip-172-31-8-199 /]# 
+
+
