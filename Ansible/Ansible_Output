@@ -460,3 +460,28 @@ PLAY RECAP *********************************************************************
 
 [root@ip-172-31-3-38 /]# 
 
+*** Usecase - modify httpd.yml and run the playbook ************************************************************************************
+
+[root@ip-172-31-3-38 /]# vi httpd.yml 
+[root@ip-172-31-3-38 /]# cat httpd.yml 
+- hosts: all
+  become: true
+  tasks:
+    - name: "Install httpd package"
+      package:
+        name: "httpd"
+        state: present
+
+    - name: "Copy webpages"
+      copy: 
+        src: /index.html
+        dest: /var/www/html
+        owner: root
+        group: root
+
+    - name: "Start server"
+      service:
+        name: httpd
+        state: started
+        enable: yes
+[root@ip-172-31-3-38 /]# 
