@@ -180,3 +180,21 @@ could change the meaning of that path. See https://docs.ansible.com/ansible-core
 3.111.38.10 | FAILED | rc=1 >>
 Error: This command has to be run with superuser privileges (under the root user on most systems).non-zero return code
 [root@ip-172-31-3-38 /]# 
+
+************************************* *************************************************************************************************************************************
+*   Note : above command failed because we are running the command using ec2-user and ec2-user doesn't have the permission to install anything
+*   Open the ansible.cfg file and modify privilege section , enable become section i.e become_method=sudo , remove semicolon , become_user=root , become_ask_pass=False
+*****************************************************************************************************************************************************************************
+
+[root@ip-172-31-3-38 /]# vi ansible.cfg 
+[root@ip-172-31-3-38 /]# ansible all -m command -a "id"
+[WARNING]: Platform linux on host 3.111.38.10 is using the discovered Python interpreter at /usr/bin/python3.9, but future installation of another Python interpreter
+could change the meaning of that path. See https://docs.ansible.com/ansible-core/2.15/reference_appendices/interpreter_discovery.html for more information.
+3.111.38.10 | CHANGED | rc=0 >>
+uid=1000(ec2-user) gid=1000(ec2-user) groups=1000(ec2-user),4(adm),10(wheel),190(systemd-journal) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+[root@ip-172-31-3-38 /]# ansible all -m command -a " sudo id"
+[WARNING]: Platform linux on host 3.111.38.10 is using the discovered Python interpreter at /usr/bin/python3.9, but future installation of another Python interpreter
+could change the meaning of that path. See https://docs.ansible.com/ansible-core/2.15/reference_appendices/interpreter_discovery.html for more information.
+3.111.38.10 | CHANGED | rc=0 >>
+uid=0(root) gid=0(root) groups=0(root) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+[root@ip-172-31-3-38 /]# 
