@@ -766,3 +766,8 @@ community.aws:10.0.0 was installed successfully
 Installing 'amazon.aws:10.1.1' to '/root/.ansible/collections/ansible_collections/amazon/aws'
 amazon.aws:10.1.1 was installed successfully
 [root@ip-172-31-3-38 /]# 
+[root@ip-172-31-3-38 /]# cd /root/.ansible/collections/ansible_collections/amazon/aws
+[root@ip-172-31-3-38 aws]# ls
+CHANGELOG.rst  CONTRIBUTING.md  FILES.json     README.md   changelogs  meta     pyproject.toml    test-requirements.txt  tox.ini
+CI.md          COPYING          MANIFEST.json  bindep.txt  docs        plugins  requirements.txt  tests
+[root@ip-172-31-3-38 aws]# 
