@@ -309,3 +309,38 @@ nginx-1.28.0-1.amzn2023.0.2.x86_64
         src: /index.html
 [root@ip-172-31-3-38 /]# vi index.html
 [root@ip-172-31-3-38 /]# 
+
+
+*****************************************************************************************************************************************************
+* Note : index.html content is in the ansible folder index.html file
+*****************************************************************************************************************************************************
+
+
+[root@ip-172-31-3-38 /]# vi index.html
+[root@ip-172-31-3-38 /]# cat httpd.yml 
+- hosts: all
+  tasks:
+    - name: "Install httpd package"
+      package:
+        name: "httpd"
+        state: present
+
+    - name: "Copy webpages"
+      copy: 
+        src: /index.html
+[root@ip-172-31-3-38 /]# vi httpd.yml
+[root@ip-172-31-3-38 /]# cat httpd.yml 
+- hosts: all
+  tasks:
+    - name: "Install httpd package"
+      package:
+        name: "httpd"
+        state: present
+
+    - name: "Copy webpages"
+      copy: 
+        src: /index.html
+        dest: /var/www/html
+        owner: root
+        group: root
+[root@ip-172-31-3-38 /]# 
