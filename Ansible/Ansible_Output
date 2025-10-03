@@ -122,3 +122,14 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
 }
 [root@ip-172-31-3-38 /]# 
 
+**************** Modify one more configuration is ansible.cfg file ***********************************************
+**  i.e host_key_checking=False and remove the semicolon in the front of the line
+[root@ip-172-31-3-38 /]# ansible all -m command -a "date"
+3.111.38.10 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\r\n@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @\r\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\r\nPermissions 0644 for 'key.pem' are too open.\r\nIt is required that your private key files are NOT accessible by others.\r\nThis private key will be ignored.\r\nLoad key \"key.pem\": bad permissions\r\nec2-user@3.111.38.10: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).",
+    "unreachable": true
+}
+[root@ip-172-31-3-38 /]# 
+
+
