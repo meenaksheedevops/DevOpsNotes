@@ -587,3 +587,8 @@ Oct 03 09:50:07 ip-172-31-8-199.ap-south-1.compute.internal systemd[1]: Starting
 Oct 03 09:50:07 ip-172-31-8-199.ap-south-1.compute.internal systemd[1]: Started httpd.service - The Apache HTTP Server.
 Oct 03 09:50:07 ip-172-31-8-199.ap-south-1.compute.internal httpd[35657]: Server configured, listening on: port 80
 [root@ip-172-31-8-199 html]# 
+
+************************************************************************************************************************************************
+* Now take the public ip of target node and open the webpage i.e http://3.111.38.10:80 to view the webpage , webpage image is added in webpage.jpg 
+* Under Ansible folder
+**************************************************************************************************************************************************
