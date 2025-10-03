@@ -1,1 +1,69 @@
 
+  ,     #_
+   ~\_  ####_        Amazon Linux 2023
+  ~~  \_#####\
+  ~~     \###|
+  ~~       \#/ ___   https://aws.amazon.com/linux/amazon-linux-2023
+   ~~       V~' '->
+    ~~~         /
+      ~~._.   _/
+         _/ _/
+       _/m/'
+[ec2-user@ip-172-31-3-38 ~]$ sudo su root
+[root@ip-172-31-3-38 ec2-user]# yum install ansible-core -y
+Amazon Linux 2023 Kernel Livepatch repository                                                                                          255 kB/s |  26 kB     00:00    
+Dependencies resolved.
+=======================================================================================================================================================================
+ Package                                Architecture                     Version                                           Repository                             Size
+=======================================================================================================================================================================
+Installing:
+ ansible-core                           x86_64                           2.15.3-1.amzn2023.0.11                            amazonlinux                           2.5 M
+Installing dependencies:
+ git-core                               x86_64                           2.50.1-1.amzn2023.0.1                             amazonlinux                           4.9 M
+ sshpass                                x86_64                           1.09-6.amzn2023.0.1                               amazonlinux                            28 k
+
+Transaction Summary
+=======================================================================================================================================================================
+Install  3 Packages
+
+Total download size: 7.4 M
+Installed size: 38 M
+Downloading Packages:
+(1/3): sshpass-1.09-6.amzn2023.0.1.x86_64.rpm                                                                                          871 kB/s |  28 kB     00:00    
+(2/3): ansible-core-2.15.3-1.amzn2023.0.11.x86_64.rpm                                                                                   32 MB/s | 2.5 MB     00:00    
+(3/3): git-core-2.50.1-1.amzn2023.0.1.x86_64.rpm                                                                                        44 MB/s | 4.9 MB     00:00    
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                                   52 MB/s | 7.4 MB     00:00     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                                                                                                               1/1 
+  Installing       : sshpass-1.09-6.amzn2023.0.1.x86_64                                                                                                            1/3 
+  Installing       : git-core-2.50.1-1.amzn2023.0.1.x86_64                                                                                                         2/3 
+  Installing       : ansible-core-2.15.3-1.amzn2023.0.11.x86_64                                                                                                    3/3 
+  Running scriptlet: ansible-core-2.15.3-1.amzn2023.0.11.x86_64                                                                                                    3/3 
+  Verifying        : ansible-core-2.15.3-1.amzn2023.0.11.x86_64                                                                                                    1/3 
+  Verifying        : git-core-2.50.1-1.amzn2023.0.1.x86_64                                                                                                         2/3 
+  Verifying        : sshpass-1.09-6.amzn2023.0.1.x86_64                                                                                                            3/3 
+
+Installed:
+  ansible-core-2.15.3-1.amzn2023.0.11.x86_64                 git-core-2.50.1-1.amzn2023.0.1.x86_64                 sshpass-1.09-6.amzn2023.0.1.x86_64                
+
+Complete!
+[root@ip-172-31-3-38 ec2-user]# cd /
+[root@ip-172-31-3-38 /]# ansible --version
+ansible [core 2.15.3]
+  config file = None
+  configured module search path = ['/root/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3.9/site-packages/ansible
+  ansible collection location = /root/.ansible/collections:/usr/share/ansible/collections
+  executable location = /usr/bin/ansible
+  python version = 3.9.23 (main, Aug 11 2025, 00:00:00) [GCC 11.5.0 20240719 (Red Hat 11.5.0-5)] (/usr/bin/python3.9)
+  jinja version = 3.1.4
+  libyaml = True
+[root@ip-172-31-3-38 /]# ansible-config init --disable > ansible.cfg
+[root@ip-172-31-3-38 /]# ls
+ansible.cfg  bin  boot  dev  etc  home  lib  lib64  local  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+[root@ip-172-31-3-38 /]# 
