@@ -771,3 +771,11 @@ amazon.aws:10.1.1 was installed successfully
 CHANGELOG.rst  CONTRIBUTING.md  FILES.json     README.md   changelogs  meta     pyproject.toml    test-requirements.txt  tox.ini
 CI.md          COPYING          MANIFEST.json  bindep.txt  docs        plugins  requirements.txt  tests
 [root@ip-172-31-3-38 aws]# 
+
+***************** Modify create_instance.yml *****************************************************************************
+
+[root@ip-172-31-3-38 /]# ansible-playbook create_instance.yml
+[WARNING]: Collection community.aws does not support Ansible version 2.15.3
+[WARNING]: Collection amazon.aws does not support Ansible version 2.15.3
+ERROR! Attempting to decrypt but no vault secrets found
+[root@ip-172-31-3-38 /]# 
