@@ -344,3 +344,19 @@ nginx-1.28.0-1.amzn2023.0.2.x86_64
         owner: root
         group: root
 [root@ip-172-31-3-38 /]# 
+[root@ip-172-31-3-38 /]# ansible-playbook httpd.yml
+
+PLAY [all] ************************************************************************************************************************************************************
+
+TASK [Gathering Facts] ************************************************************************************************************************************************
+[WARNING]: Platform linux on host 3.111.38.10 is using the discovered Python interpreter at /usr/bin/python3.9, but future installation of another Python interpreter
+could change the meaning of that path. See https://docs.ansible.com/ansible-core/2.15/reference_appendices/interpreter_discovery.html for more information.
+ok: [3.111.38.10]
+
+TASK [Install httpd package] ******************************************************************************************************************************************
+fatal: [3.111.38.10]: FAILED! => {"changed": false, "msg": "This command has to be run under the root user.", "results": []}
+
+PLAY RECAP ************************************************************************************************************************************************************
+3.111.38.10                : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+
+[root@ip-172-31-3-38 /]# 
