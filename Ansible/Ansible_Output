@@ -198,3 +198,13 @@ could change the meaning of that path. See https://docs.ansible.com/ansible-core
 3.111.38.10 | CHANGED | rc=0 >>
 uid=0(root) gid=0(root) groups=0(root) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
 [root@ip-172-31-3-38 /]# 
+
+*****************************************************************************************************************************************************
+* Note : you can use sudo or you can use below command as well to run with root privilege
+********************************************************************************************************************************************************
+[root@ip-172-31-3-38 /]# ansible all -m command -a "id" -b 
+[WARNING]: Platform linux on host 3.111.38.10 is using the discovered Python interpreter at /usr/bin/python3.9, but future installation of another Python interpreter
+could change the meaning of that path. See https://docs.ansible.com/ansible-core/2.15/reference_appendices/interpreter_discovery.html for more information.
+3.111.38.10 | CHANGED | rc=0 >>
+uid=0(root) gid=0(root) groups=0(root) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+[root@ip-172-31-3-38 /]# 
