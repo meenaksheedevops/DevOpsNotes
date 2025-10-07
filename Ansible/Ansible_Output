@@ -587,3 +587,224 @@ Oct 03 09:50:07 ip-172-31-8-199.ap-south-1.compute.internal systemd[1]: Starting
 Oct 03 09:50:07 ip-172-31-8-199.ap-south-1.compute.internal systemd[1]: Started httpd.service - The Apache HTTP Server.
 Oct 03 09:50:07 ip-172-31-8-199.ap-south-1.compute.internal httpd[35657]: Server configured, listening on: port 80
 [root@ip-172-31-8-199 html]# 
+
+************************************************************************************************************************************************
+* Now take the public ip of target node and open the webpage i.e http://3.111.38.10:80 to view the webpage , webpage image is added in webpage.jpg 
+* Under Ansible folder
+**************************************************************************************************************************************************
+
+************************************************ Documentation **************************************************************
+*  https://docs.ansible.com/ansible/latest/collections/amazon/aws/ec2_instance_module.html
+********************************************************************************************************************************
+
+***Usecase *****************************************************************************************************************************
+* create aws_credential.yml and write below things and save the file and encrypt this file using ansible-vault
+****************************************************************************************************************************************
+
+aws_access_key: your_aws_access_key
+aws_secret_key: your_aws_secret_key
+
+
+[root@ip-172-31-3-38 /]# ansible-vault encrypt aws_credential.yml 
+New Vault password: 
+Confirm New Vault password: 
+Encryption successful
+[root@ip-172-31-3-38 /]# 
+
+** Now if you open and view aws_credential.yml the file is in encrypted format *******************************************************
+* to view the file use below command , provide the password to view the file content
+**********************************************************************************************************************************
+
+[root@ip-172-31-3-38 /]# ansible-vault view aws_credential.yml 
+Vault password: 
+
+************************* create two files as shown below ****************************************************************************
+[root@ip-172-31-3-38 /]# cat create_instance.yml 
+- hosts: localhost
+  vars_files:
+    - aws_credential.yml
+    - instance_vars.yml
+  tasks:
+    - package:
+        name: python3-pip
+        state: present
+    - pip:
+        name: boto3
+    - community.aws.ec2_instance:
+      aws_access_key: "{{ aws_access_key }}"
+      aws_secret_key: "{{ aws_secret_key }}"
+      region: "{{ aws_region }}"
+      tags:
+        Name: "{{ name }}"
+      key_name: "{{ key_pair }}"
+      instance_type: " {{ instance_type }}"
+      image_id: "{{ aws_image }}"
+      vpc_subnet_id: "{{ subnet }}"
+      network:
+        assign_public_ip: true
+        security_group: default
+      count: "{{ count }}"
+[root@ip-172-31-3-38 /]# ls
+ansible.cfg         bin   create_instance.yml  etc   httpd.yml   instance_vars.yml  key.pem  lib64  media  opt   root  sbin  sys  usr
+aws_credential.yml  boot  dev                  home  index.html  inventory          lib      local  mnt    proc  run   srv   tmp  var
+[root@ip-172-31-3-38 /]# cat instance_vars.yml 
+aws_region: ap-south-1
+instance_type: t3.micro
+aws_image: "ami-0f9708d1cd2cfee41"
+count: 1
+subnet: subnet-0f2f4ae536f8f41b9
+security_group: default
+key_pair: gfgdevops
+name: Aws-AnsibleLaunchedEC2
+
+[root@ip-172-31-3-38 /]# 
+
+
+[root@ip-172-31-3-38 /]# ansible-playbook create_instance.yml 
+ERROR! conflicting action statements: community.aws.ec2_instance, aws_access_key
+
+The error appears to be in '/create_instance.yml': line 11, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+        name: boto3
+    - community.aws.ec2_instance:
+      ^ here
+[root@ip-172-31-3-38 /]#
+
+*** it throws error , so we need to check few more things , provide below command and q to exit
+
+[root@ip-172-31-3-38 /]# ansible-doc -l
+ansible.builtin.add_host               Add a host (and alternatively a group) to the ansible-playbook in-memory inventory                                         
+ansible.builtin.apt                    Manages apt-packages                                                                                                       
+ansible.builtin.apt_key                Add or remove an apt key                                                                                                   
+ansible.builtin.apt_repository         Add and remove APT repositories                                                                                            
+ansible.builtin.assemble               Assemble configuration files from fragments                                                                                
+ansible.builtin.assert                 Asserts given expressions are true                                                                                         
+ansible.builtin.async_status           Obtain status of asynchronous task                                                                                         
+ansible.builtin.blockinfile            Insert/update/remove a text block surrounded by marker lines                                                               
+ansible.builtin.command                Execute commands on targets                                                                                                
+ansible.builtin.copy                   Copy files to remote locations                                                                                             
+ansible.builtin.cron                   Manage cron.d and crontab entries                                                                                          
+ansible.builtin.deb822_repository      Add and remove deb822 formatted repositories                                                                               
+ansible.builtin.debconf                Configure a .deb package                                                                                                   
+ansible.builtin.debug                  Print statements during execution                                                                                          
+ansible.builtin.dnf                    Manages packages with the `dnf' package manager                                                                            
+ansible.builtin.dnf5                   Manages packages with the `dnf5' package manager                                                                           
+ansible.builtin.dpkg_selections        Dpkg package selection selections                                                                                          
+ansible.builtin.expect                 Executes a command and responds to prompts                                                                                 
+ansible.builtin.fail                   Fail with custom message                                                                                                   
+ansible.builtin.fetch                  Fetch files from remote nodes                                                                                              
+ansible.builtin.file                   Manage files and file properties                                                                                           
+ansible.builtin.find                   Return a list of files based on specific criteria                                                                          
+ansible.builtin.gather_facts           Gathers facts about remote hosts                                                                                           
+ansible.builtin.get_url                Downloads files from HTTP, HTTPS, or FTP to node                                                                           
+ansible.builtin.getent                 A wrapper to the unix getent utility                                                                                       
+ansible.builtin.git                    Deploy software (or files) from git checkouts                                                                              
+ansible.builtin.group                  Add or remove groups                                                                                                       
+ansible.builtin.group_by               Create Ansible groups based on facts                                                                                       
+ansible.builtin.hostname               Manage hostname                                                                                                            
+ansible.builtin.import_playbook        Import a playbook                                                                                                          
+ansible.builtin.import_role            Import a role into a play                                                                                                  
+ansible.builtin.import_tasks           Import a task list                                                                                                         
+ansible.builtin.include_role           Load and execute a role                                                                                                    
+ansible.builtin.include_tasks          Dynamically include a task list                                                                                            
+ansible.builtin.include_vars           Load variables from files, dynamically within a task                                                                       
+ansible.builtin.iptables               Modify iptables rules                                                                                                      
+ansible.builtin.known_hosts            Add or remove a host from the `known_hosts' file                                                                           
+ansible.builtin.lineinfile             Manage lines in text files                                                                                                 
+ansible.builtin.meta                   Execute Ansible 'actions'                                                                                                  
+ansible.builtin.package                Generic OS package manager                                                                                                 
+ansible.builtin.package_facts          Package information as facts                                                                                               
+ansible.builtin.pause                  Pause playbook execution                                                                                                   
+ansible.builtin.ping                   Try to connect to host, verify a usable python and return `pong' on success                                                
+ansible.builtin.pip                    Manages Python library dependencies                                                                                        
+ansible.builtin.raw                    Executes a low-down and dirty command                                                                                      
+ansible.builtin.reboot                 Reboot a machine                                                                                                           
+ansible.builtin.replace                Replace all instances of a particular string in a file using a back-referenced regular expression                          
+ansible.builtin.rpm_key                Adds or removes a gpg key from the rpm db                                                                                  
+ansible.builtin.script                 Runs a local script on a remote node after transferring it                                                                 
+ansible.builtin.service                Manage services                                                                                                            
+ansible.builtin.service_facts          Return service state information as fact data                                                                              
+ansible.builtin.set_fact               Set host variable(s) and fact(s)                                                                                           
+ansible.builtin.set_stats              Define and display stats for the current ansible run                                                                       
+ansible.builtin.setup                  Gathers facts about remote hosts                                                                                           
+ansible.builtin.shell                  Execute shell commands on targets                                                                                          
+ansible.builtin.slurp                  Slurps a file from remote nodes                                                                                            
+ansible.builtin.stat                   Retrieve file or file system status                                                                                        
+ansible.builtin.subversion             Deploys a subversion repository                                                                                            
+ansible.builtin.systemd                Manage systemd units                                                                                                       
+ansible.builtin.systemd_service        Manage systemd units                                                                                                       
+ansible.builtin.sysvinit               Manage SysV services                                                                                                       
+ansible.builtin.tempfile               Creates temporary files and directories                                                                                    
+ansible.builtin.template               Template a file out to a target host                                                                                       
+ansible.builtin.unarchive              Unpacks an archive after (optionally) copying it from the local machine                                                    
+ansible.builtin.uri                    Interacts with webservices                                                                                                 
+ansible.builtin.user                   Manage user accounts                                                                                                       
+ansible.builtin.validate_argument_spec Validate role argument specs                                                                                               
+ansible.builtin.wait_for               Waits for a condition before continuing                                                                                    
+ansible.builtin.wait_for_connection    Waits until remote system is reachable/usable                                                                              
+ansible.builtin.yum                    Manages packages with the `yum' package manager                                                                            
+ansible.builtin.yum_repository         Add or remove YUM repositories                                                                                             
+
+DEPRECATED:
+ansible.builtin.include                Include a task list                                                                                                        
+[root@ip-172-31-3-38 /]# 
+
+**** in ansible uses galaxy to install modules ************************************************************************************
+*  https://galaxy.ansible.com/ui/repo/published/community/aws
+************************************************************************************************************************************
+[root@ip-172-31-3-38 /]# ansible-galaxy collection install community.aws
+Starting galaxy collection install process
+Process install dependency map
+Starting collection install process
+Downloading https://galaxy.ansible.com/api/v3/plugin/ansible/content/published/collections/artifacts/community-aws-10.0.0.tar.gz to /root/.ansible/tmp/ansible-local-37475mi61t7cc/tmpydq84hiq/community-aws-10.0.0-5r56snk0
+Installing 'community.aws:10.0.0' to '/root/.ansible/collections/ansible_collections/community/aws'
+Downloading https://galaxy.ansible.com/api/v3/plugin/ansible/content/published/collections/artifacts/amazon-aws-10.1.1.tar.gz to /root/.ansible/tmp/ansible-local-37475mi61t7cc/tmpydq84hiq/amazon-aws-10.1.1-9te98ik1
+community.aws:10.0.0 was installed successfully
+Installing 'amazon.aws:10.1.1' to '/root/.ansible/collections/ansible_collections/amazon/aws'
+amazon.aws:10.1.1 was installed successfully
+[root@ip-172-31-3-38 /]# 
+[root@ip-172-31-3-38 /]# cd /root/.ansible/collections/ansible_collections/amazon/aws
+[root@ip-172-31-3-38 aws]# ls
+CHANGELOG.rst  CONTRIBUTING.md  FILES.json     README.md   changelogs  meta     pyproject.toml    test-requirements.txt  tox.ini
+CI.md          COPYING          MANIFEST.json  bindep.txt  docs        plugins  requirements.txt  tests
+[root@ip-172-31-3-38 aws]# 
+
+***************** Modify create_instance.yml *****************************************************************************
+
+[root@ip-172-31-3-38 /]# ansible-playbook create_instance.yml
+[WARNING]: Collection community.aws does not support Ansible version 2.15.3
+[WARNING]: Collection amazon.aws does not support Ansible version 2.15.3
+ERROR! Attempting to decrypt but no vault secrets found
+[root@ip-172-31-3-38 /]# 
+
+[root@ip-172-31-3-38 /]# ansible-playbook create_instance.yml --ask-vault-password
+Vault password: 
+[WARNING]: Collection community.aws does not support Ansible version 2.15.3
+[WARNING]: Collection amazon.aws does not support Ansible version 2.15.3
+[WARNING]: Found variable using reserved name: name
+
+PLAY [localhost] ******************************************************************************************************************************************************
+
+TASK [Gathering Facts] ************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [package] ********************************************************************************************************************************************************
+changed: [localhost]
+
+TASK [pip] ************************************************************************************************************************************************************
+changed: [localhost]
+
+TASK [community.aws.ec2_instance] *************************************************************************************************************************************
+An exception occurred during task execution. To see the full traceback, use -vvv. The error was: ansible_collections.amazon.aws.plugins.module_utils.ec2.AnsibleEC2Error: Failed to run instances: An error occurred (InvalidParameterValue) when calling the RunInstances operation: Invalid value ' t3.micro' for InstanceType.
+[WARNING]: packaging.version Python module not installed, unable to check AWS SDK versions
+[DEPRECATION WARNING]: The network parameter has been deprecated, please use network_interfaces and/or network_interfaces_ids instead. This feature will be removed 
+from amazon.aws in a release after 2026-12-01. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+fatal: [localhost]: FAILED! => {"boto3_version": "1.40.44", "botocore_version": "1.40.44", "changed": false, "error": {"code": "InvalidParameterValue", "message": "Invalid value ' t3.micro' for InstanceType."}, "msg": "Failed to run instances: An error occurred (InvalidParameterValue) when calling the RunInstances operation: Invalid value ' t3.micro' for InstanceType.", "response_metadata": {"http_headers": {"cache-control": "no-cache, no-store", "connection": "close", "content-type": "text/xml;charset=UTF-8", "date": "Fri, 03 Oct 2025 14:06:59 GMT", "server": "AmazonEC2", "strict-transport-security": "max-age=31536000; includeSubDomains", "transfer-encoding": "chunked", "vary": "accept-encoding", "x-amzn-requestid": "66c80d0c-a3b6-40ba-8585-19034cb739ff"}, "http_status_code": 400, "request_id": "66c80d0c-a3b6-40ba-8585-19034cb739ff", "retry_attempts": 0}}
+
+PLAY RECAP ************************************************************************************************************************************************************
+localhost                  : ok=3    changed=2    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+
+[root@ip-172-31-3-38 /]# 

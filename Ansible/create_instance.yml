@@ -1,0 +1,25 @@
+******     Updated aws-credentials.yml  name********************************
+- hosts: localhost
+  vars_files:
+    - aws-credentials.yml
+    - instance_vars.yml
+  tasks:
+    - package:
+        name: python3-pip
+        state: present
+    - pip:
+        name: boto3
+    - community.aws.ec2_instance:
+        aws_access_key: "{{ aws_access_key }}"
+        aws_secret_key: "{{ aws_secret_key }}"
+        region: "{{ aws_region }}"
+        tags:
+          Name: "{{ name }}"
+        key_name: "{{ key_pair  }}"
+        instance_type: "{{ instance_type  }}"
+        image_id: "{{ aws_image }}"
+        vpc_subnet_id: "{{ subnet }}"
+        network:
+          assign_public_ip: true
+          security_group: default
+        count: "{{ count }}"
