@@ -53,3 +53,7 @@ Installed:
 
 Complete!
 [root@ip-172-31-38-228 /]# 
+[root@ip-172-31-38-228 /]# mkdir ansiblegfg
+[root@ip-172-31-38-228 /]# cd ansiblegfg/
+[root@ip-172-31-38-228 ansiblegfg]# ansible-config init --disable > ansible.cfg
+[root@ip-172-31-38-228 ansiblegfg]# 
