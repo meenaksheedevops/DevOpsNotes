@@ -1173,3 +1173,9 @@ localhost                  : ok=7    changed=1    unreachable=0    failed=0    s
 
 {%endfor%}
 [root@ip-172-31-38-228 ansiblegfg]# 
+
+********************  ************************************************************************************************************************************
+*   create one more file key.pem and this is the key file using which keypair you have create ec2 instance , copy and paste the content in key.pem
+***********************************************************************************************************************************************************
+[root@ip-172-31-38-228 ansiblegfg]# vi key.pem
+[root@ip-172-31-38-228 ansiblegfg]# 
