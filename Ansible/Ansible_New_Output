@@ -85,3 +85,17 @@ Complete!
           security_group: default
         count: "{{ count }}"
 [root@ip-172-31-38-228 ansiblegfg]# 
+[root@ip-172-31-38-228 ansiblegfg]# vi instance_vars.yml
+[root@ip-172-31-38-228 ansiblegfg]# cat instance_vars.yml 
+aws_region: ap-south-1
+instance_type: t3.micro
+aws_image: "ami-0f9708d1cd2cfee41"
+count: 1
+subnet: subnet-0195b3b8254e3fa1b
+security_group: allportsopen
+key_pair: gfgdevops
+name: AnsibleEc2Instance
+[root@ip-172-31-38-228 ansiblegfg]# ansible-vault create aws-credentials.yml
+New Vault password: 
+Confirm New Vault password: 
+[root@ip-172-31-38-228 ansiblegfg]# 
