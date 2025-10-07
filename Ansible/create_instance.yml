@@ -1,6 +1,7 @@
+******     Updated aws-credentials.yml  name********************************
 - hosts: localhost
   vars_files:
-    - aws_credential.yml
+    - aws-credentials.yml
     - instance_vars.yml
   tasks:
     - package:
@@ -14,11 +15,11 @@
         region: "{{ aws_region }}"
         tags:
           Name: "{{ name }}"
-        key_name: "{{ key_pair }}"
-        instance_type: " {{ instance_type }}"
+        key_name: "{{ key_pair  }}"
+        instance_type: "{{ instance_type  }}"
         image_id: "{{ aws_image }}"
         vpc_subnet_id: "{{ subnet }}"
         network:
           assign_public_ip: true
-          security_group: allportsopen
+          security_group: default
         count: "{{ count }}"
