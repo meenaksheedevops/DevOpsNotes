@@ -1942,3 +1942,4 @@ Swap:             0B          0B          0B
 [root@ip-172-31-38-228 ansiblegfg]# ls
 ansible.cfg  aws-credentials.yml  create_instance.yml  instance_vars.yml  inventory  inventory.j2  key.pem
 [root@ip-172-31-38-228 ansiblegfg]# 
+
