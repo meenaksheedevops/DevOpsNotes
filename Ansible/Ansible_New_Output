@@ -1,1 +1,55 @@
+   ,     #_
+   ~\_  ####_        Amazon Linux 2023
+  ~~  \_#####\
+  ~~     \###|
+  ~~       \#/ ___   https://aws.amazon.com/linux/amazon-linux-2023
+   ~~       V~' '->
+    ~~~         /
+      ~~._.   _/
+         _/ _/
+       _/m/'
+[ec2-user@ip-172-31-38-228 ~]$ sudo su root
+[root@ip-172-31-38-228 ec2-user]# cd /
+[root@ip-172-31-38-228 /]# yum install ansible-core -y
+Amazon Linux 2023 Kernel Livepatch repository                                                                                          191 kB/s |  26 kB     00:00    
+Dependencies resolved.
+=======================================================================================================================================================================
+ Package                                Architecture                     Version                                           Repository                             Size
+=======================================================================================================================================================================
+Installing:
+ ansible-core                           x86_64                           2.15.3-1.amzn2023.0.11                            amazonlinux                           2.5 M
+Installing dependencies:
+ git-core                               x86_64                           2.50.1-1.amzn2023.0.1                             amazonlinux                           4.9 M
+ sshpass                                x86_64                           1.09-6.amzn2023.0.1                               amazonlinux                            28 k
 
+Transaction Summary
+=======================================================================================================================================================================
+Install  3 Packages
+
+Total download size: 7.4 M
+Installed size: 38 M
+Downloading Packages:
+(1/3): sshpass-1.09-6.amzn2023.0.1.x86_64.rpm                                                                                          833 kB/s |  28 kB     00:00    
+(2/3): ansible-core-2.15.3-1.amzn2023.0.11.x86_64.rpm                                                                                   36 MB/s | 2.5 MB     00:00    
+(3/3): git-core-2.50.1-1.amzn2023.0.1.x86_64.rpm                                                                                        50 MB/s | 4.9 MB     00:00    
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                                   58 MB/s | 7.4 MB     00:00     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                                                                                                               1/1 
+  Installing       : sshpass-1.09-6.amzn2023.0.1.x86_64                                                                                                            1/3 
+  Installing       : git-core-2.50.1-1.amzn2023.0.1.x86_64                                                                                                         2/3 
+  Installing       : ansible-core-2.15.3-1.amzn2023.0.11.x86_64                                                                                                    3/3 
+  Running scriptlet: ansible-core-2.15.3-1.amzn2023.0.11.x86_64                                                                                                    3/3 
+  Verifying        : ansible-core-2.15.3-1.amzn2023.0.11.x86_64                                                                                                    1/3 
+  Verifying        : git-core-2.50.1-1.amzn2023.0.1.x86_64                                                                                                         2/3 
+  Verifying        : sshpass-1.09-6.amzn2023.0.1.x86_64                                                                                                            3/3 
+
+Installed:
+  ansible-core-2.15.3-1.amzn2023.0.11.x86_64                 git-core-2.50.1-1.amzn2023.0.1.x86_64                 sshpass-1.09-6.amzn2023.0.1.x86_64                
+
+Complete!
+[root@ip-172-31-38-228 /]# 
