@@ -99,3 +99,14 @@ name: AnsibleEc2Instance
 New Vault password: 
 Confirm New Vault password: 
 [root@ip-172-31-38-228 ansiblegfg]# 
+[root@ip-172-31-38-228 ansiblegfg]# ansible-galaxy collection install community.aws
+Starting galaxy collection install process
+Process install dependency map
+Starting collection install process
+Downloading https://galaxy.ansible.com/api/v3/plugin/ansible/content/published/collections/artifacts/community-aws-10.0.0.tar.gz to /root/.ansible/tmp/ansible-local-26239wzgobfxo/tmptrtwr8qn/community-aws-10.0.0-54cdt_9_
+Installing 'community.aws:10.0.0' to '/root/.ansible/collections/ansible_collections/community/aws'
+community.aws:10.0.0 was installed successfully
+Downloading https://galaxy.ansible.com/api/v3/plugin/ansible/content/published/collections/artifacts/amazon-aws-10.1.1.tar.gz to /root/.ansible/tmp/ansible-local-26239wzgobfxo/tmptrtwr8qn/amazon-aws-10.1.1-mrdojf6j
+Installing 'amazon.aws:10.1.1' to '/root/.ansible/collections/ansible_collections/amazon/aws'
+amazon.aws:10.1.1 was installed successfully
+[root@ip-172-31-38-228 ansiblegfg]# 
