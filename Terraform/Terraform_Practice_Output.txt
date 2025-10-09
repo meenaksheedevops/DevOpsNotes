@@ -83,3 +83,8 @@ C:\Users\Meenakshee\OneDrive\Desktop\DevOpsNotes\DevOpsNotes\Terraform>
 *                   https://awscli.amazonaws.com/AWSCLIV2.msi
 *******************************************************************************************************************************************************
 
+Microsoft Windows [Version 10.0.22631.5768]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\Meenakshee\OneDrive\Desktop\DevOpsNotes\DevOpsNotes\Terraform>aws --version
+aws-cli/2.31.11 Python/3.13.7 Windows/11 exe/AMD64
