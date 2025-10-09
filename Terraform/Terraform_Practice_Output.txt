@@ -34,3 +34,10 @@ rerun this command to reinitialize your working directory. If you forget, other
 commands will detect it and remind you to do so if necessary.
 
 C:\Users\Meenakshee\OneDrive\Desktop\DevOpsNotes\DevOpsNotes\Terraform>
+
+
+*************************************************************************************************************************************************************
+*  create a folder for terraform practice and create a newfile ec2.tf , open in vs code for source code and we will execute the files in command prompt
+*
+*************************************************************************************************************************************************************
+
