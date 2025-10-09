@@ -41,3 +41,32 @@ C:\Users\Meenakshee\OneDrive\Desktop\DevOpsNotes\DevOpsNotes\Terraform>
 *
 *************************************************************************************************************************************************************
 
+***********************************************************************************************************************************************************
+*  go to https://registry.terraform.io/providers/hashicorp/aws/latest/docs and click on use provider and copy the code for provider plugins
+************************************************************************************************************************************************************
+
+*** In vs code open the terminal and open in command prompt
+Microsoft Windows [Version 10.0.22631.5768]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\Meenakshee\OneDrive\Desktop\DevOpsNotes\DevOpsNotes\Terraform>terraform plan
+
+Planning failed. Terraform encountered an error while generating this plan.
+
+╷
+│ Error: No valid credential sources found
+│ 
+│   with provider["registry.terraform.io/hashicorp/aws"],
+│   on ec2.tf line 10, in provider "aws":
+│   10: provider "aws" {
+│ 
+│ Please see https://registry.terraform.io/providers/hashicorp/aws
+│ for more information about providing credentials.
+│
+│ Error: failed to refresh cached credentials, no EC2 IMDS role found, operation error ec2imds: GetMetadata, exceeded maximum     
+│ number of attempts, 3, request send failed, Get "http://169.254.169.254/latest/meta-data/iam/security-credentials/": dial tcp   
+│ 169.254.169.254:80: connectex: A socket operation was attempted to an unreachable network.
+│
+╵
+
+C:\Users\Meenakshee\OneDrive\Desktop\DevOpsNotes\DevOpsNotes\Terraform>
