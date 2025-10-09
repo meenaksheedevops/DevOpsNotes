@@ -88,3 +88,10 @@ Microsoft Windows [Version 10.0.22631.5768]
 
 C:\Users\Meenakshee\OneDrive\Desktop\DevOpsNotes\DevOpsNotes\Terraform>aws --version
 aws-cli/2.31.11 Python/3.13.7 Windows/11 exe/AMD64
+C:\Users\Meenakshee\OneDrive\Desktop\DevOpsNotes\DevOpsNotes\Terraform>aws configure
+AWS Access Key ID [None]: your_access_key
+AWS Secret Access Key [None]: your_secret_key
+Default region name [None]: ap-south-1
+Default output format [None]: json
+
+C:\Users\Meenakshee\OneDrive\Desktop\DevOpsNotes\DevOpsNotes\Terraform>
