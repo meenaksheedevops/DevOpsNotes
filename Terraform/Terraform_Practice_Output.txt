@@ -79,4 +79,7 @@ C:\Users\Meenakshee\OneDrive\Desktop\DevOpsNotes\DevOpsNotes\Terraform>
 
 *****************************************************************************************************************************************************
 * download windows aws cli  ->  https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+*  Download and run the AWS CLI MSI installer for Windows (64-bit):
+*                   https://awscli.amazonaws.com/AWSCLIV2.msi
 *******************************************************************************************************************************************************
+
