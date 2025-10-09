@@ -99,3 +99,32 @@ C:\Users\Meenakshee\OneDrive\Desktop\DevOpsNotes\DevOpsNotes\Terraform>aws confi
 default
 
 C:\Users\Meenakshee\OneDrive\Desktop\DevOpsNotes\DevOpsNotes\Terraform>
+
+*****************************************************************************************************************************************************************
+* ec2.tf file content 
+*****************************************************************************************************************************************************************
+terraform {
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      version = "6.15.0"
+    }
+  }
+}
+
+provider "aws" {
+  # Configuration options
+  region = "ap-south-1"
+  profile = "default"
+}
+
+
+
+resource "aws_instance" "this" {
+  ami                     = "ami-0f9708d1cd2cfee41"
+  instance_type           = "t3.micro"
+  key_name = "gfgdevops"
+  tags = {
+    Name: "Ec2LaunchedByTerraform"
+  }
+}
