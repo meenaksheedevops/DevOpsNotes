@@ -323,3 +323,47 @@ C:\Users\Meenakshee\OneDrive\Desktop\DevOpsNotes\DevOpsNotes\Terraform>
 * Go to ec2 dashboard , ec2 is created
 ********************************************************************************************************************************
 
+C:\Users\Meenakshee\OneDrive\Desktop\DevOpsNotes\DevOpsNotes\Terraform>terraform apply
+aws_instance.this: Refreshing state... [id=i-0b472ae2ce5ddf3c2]
+
+Changes to Outputs:
+  + x_value = 5
+
+You can apply this plan to save these new output values to the Terraform state, without changing any real infrastructure.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+x_value = 5
+
+C:\Users\Meenakshee\OneDrive\Desktop\DevOpsNotes\DevOpsNotes\Terraform>terraform apply
+aws_instance.this: Refreshing state... [id=i-0b472ae2ce5ddf3c2]
+
+Changes to Outputs:
+  + InstanceType = "t3.micro"
+
+You can apply this plan to save these new output values to the Terraform state, without changing any real infrastructure.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+InstanceType = "t3.micro"
+x_value = 5
+
+C:\Users\Meenakshee\OneDrive\Desktop\DevOpsNotes\DevOpsNotes\Terraform>
