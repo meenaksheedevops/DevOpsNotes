@@ -95,3 +95,7 @@ Default region name [None]: ap-south-1
 Default output format [None]: json
 
 C:\Users\Meenakshee\OneDrive\Desktop\DevOpsNotes\DevOpsNotes\Terraform>
+C:\Users\Meenakshee\OneDrive\Desktop\DevOpsNotes\DevOpsNotes\Terraform>aws configure list-profiles
+default
+
+C:\Users\Meenakshee\OneDrive\Desktop\DevOpsNotes\DevOpsNotes\Terraform>
