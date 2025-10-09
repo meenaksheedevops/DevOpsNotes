@@ -70,3 +70,13 @@ Planning failed. Terraform encountered an error while generating this plan.
 ╵
 
 C:\Users\Meenakshee\OneDrive\Desktop\DevOpsNotes\DevOpsNotes\Terraform>
+
+C:\Users\Meenakshee\OneDrive\Desktop\DevOpsNotes\DevOpsNotes\Terraform>aws configure
+'aws' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\Meenakshee\OneDrive\Desktop\DevOpsNotes\DevOpsNotes\Terraform>
+
+*****************************************************************************************************************************************************
+* download windows aws cli  ->  https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+*******************************************************************************************************************************************************
