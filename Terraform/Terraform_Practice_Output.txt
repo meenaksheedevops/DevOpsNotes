@@ -1,7 +1,7 @@
 **********************************************************************************************************************************************************
 * Install terraform in windows , search for terraform download and download the exe for windows.
 * Unzip the folder and update the folder path in environment variable 
-* In command prompt use below things
+* In command prompt use below things   
 ***********************************************************************************************************************************************************
 Microsoft Windows [Version 10.0.22631.5768]
 (c) Microsoft Corporation. All rights reserved.
@@ -367,3 +367,4 @@ InstanceType = "t3.micro"
 x_value = 5
 
 C:\Users\Meenakshee\OneDrive\Desktop\DevOpsNotes\DevOpsNotes\Terraform>
+
