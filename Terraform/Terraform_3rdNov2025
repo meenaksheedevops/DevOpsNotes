@@ -286,3 +286,8 @@ InstanceType = "t3.micro"
 x_value = 5
 
 C:\Users\Meenakshee\OneDrive\Desktop\Minu Documents\DevOpsNotes\DevOpsNotes\Terraform>
+
+
+********************************************************************************************************************************
+* Earlier EC2 Instance name was EC2-OS which is changed to "Ec2LauchedByTerraform" , Go to AWS Console instance and verify
+********************************************************************************************************************************
