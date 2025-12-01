@@ -38,3 +38,9 @@ Planning failed. Terraform encountered an error while generating this plan.
 ╵
 
 C:\Users\Meenakshee\OneDrive\Desktop\Minu Documents\DevOpsNotes\DevOpsNotes\Terraform>
+
+
+C:\Users\Meenakshee\OneDrive\Desktop\Minu Documents\DevOpsNotes\DevOpsNotes\Terraform>aws configure list-profiles
+default
+
+C:\Users\Meenakshee\OneDrive\Desktop\Minu Documents\DevOpsNotes\DevOpsNotes\Terraform>
