@@ -273,6 +273,29 @@ x_value = 5
 C:\Users\Meenakshee\OneDrive\Desktop\Minu Documents\DevOpsNotes\DevOpsNotes\Terraform>
 
 
+C:\Users\Meenakshee\OneDrive\Desktop\Minu Documents\DevOpsNotes\DevOpsNotes\Terraform>terraform apply
+aws_instance.this: Refreshing state... [id=i-0338f01d0034d152a]
 
+Changes to Outputs:
+  + instance_type = "t3.micro"
+
+You can apply this plan to save these new output values to the Terraform state, without changing any real
+infrastructure.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+instance_type = "t3.micro"
+x_value = 5
+
+C:\Users\Meenakshee\OneDrive\Desktop\Minu Documents\DevOpsNotes\DevOpsNotes\Terraform>
 
 
