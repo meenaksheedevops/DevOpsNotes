@@ -696,3 +696,93 @@ instance_type = "t3.micro"
 x_value = 5
 
 C:\Users\Meenakshee\OneDrive\Desktop\Minu Documents\DevOpsNotes\DevOpsNotes\Terraform>
+
+C:\Users\Meenakshee\OneDrive\Desktop\Minu Documents\DevOpsNotes\DevOpsNotes\Terraform>terraform apply 
+aws_key_pair.gfg27: Refreshing state... [id=gfgdevopsnew]
+aws_instance.awsec2new[0]: Refreshing state... [id=i-0a437d60adebac6a8]
+aws_instance.awsec2new[1]: Refreshing state... [id=i-0ec276c0b7526af68]
+
+Changes to Outputs:
+  + ec2Ipaddress  = [
+      + "15.206.147.216",
+      + "13.232.181.19",
+    ]
+
+You can apply this plan to save these new output values to the Terraform state, without changing any real
+infrastructure.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+ec2Ipaddress = [
+  "15.206.147.216",
+  "13.232.181.19",
+]
+instance_type = "t3.micro"
+x_value = 5
+
+C:\Users\Meenakshee\OneDrive\Desktop\Minu Documents\DevOpsNotes\DevOpsNotes\Terraform>terraform apply
+aws_key_pair.gfg27: Refreshing state... [id=gfgdevopsnew]
+aws_instance.awsec2new[0]: Refreshing state... [id=i-0a437d60adebac6a8]
+aws_instance.awsec2new[1]: Refreshing state... [id=i-0ec276c0b7526af68]
+
+Changes to Outputs:
+  ~ ec2Ipaddress  = [
+      - "15.206.147.216",
+      - "13.232.181.19",
+    ] -> "15.206.147.216"
+
+You can apply this plan to save these new output values to the Terraform state, without changing any real
+infrastructure.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+ec2Ipaddress = "15.206.147.216"
+instance_type = "t3.micro"
+x_value = 5
+
+C:\Users\Meenakshee\OneDrive\Desktop\Minu Documents\DevOpsNotes\DevOpsNotes\Terraform>terraform apply
+aws_key_pair.gfg27: Refreshing state... [id=gfgdevopsnew]
+aws_instance.awsec2new[0]: Refreshing state... [id=i-0a437d60adebac6a8]
+aws_instance.awsec2new[1]: Refreshing state... [id=i-0ec276c0b7526af68]
+
+Changes to Outputs:
+  + ec2Ipaddress1 = "13.232.181.19"
+
+You can apply this plan to save these new output values to the Terraform state, without changing any real
+infrastructure.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+ec2Ipaddress = "15.206.147.216"
+ec2Ipaddress1 = "13.232.181.19"
+instance_type = "t3.micro"
+x_value = 5
+
+C:\Users\Meenakshee\OneDrive\Desktop\Minu Documents\DevOpsNotes\DevOpsNotes\Terraform>
