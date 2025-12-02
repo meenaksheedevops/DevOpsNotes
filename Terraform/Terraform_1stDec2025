@@ -1295,3 +1295,108 @@ instance_type = "t3.micro"
 x_value = 5
 
 C:\Users\Meenakshee\OneDrive\Desktop\Minu Documents\DevOpsNotes\DevOpsNotes\Terraform>
+C:\Users\Meenakshee\OneDrive\Desktop\Minu Documents\DevOpsNotes\DevOpsNotes\Terraform>terraform apply
+aws_key_pair.gfg27: Refreshing state... [id=gfgdevopsnew]
+aws_security_group.mysg: Refreshing state... [id=sg-0c1240499d80df14d]
+aws_instance.awsec2new[0]: Refreshing state... [id=i-02f3d0b92bfab1388]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the  
+following symbols:
+  ~ update in-place
+
+Terraform will perform the following actions:
+
+  # aws_security_group.mysg will be updated in-place
+  ~ resource "aws_security_group" "mysg" {
+        id                     = "sg-0c1240499d80df14d"
+      ~ ingress                = [
+          - {
+              - cidr_blocks      = [
+                  - "0.0.0.0/0",
+                ]
+              - from_port        = 80
+              - ipv6_cidr_blocks = []
+              - prefix_list_ids  = []
+              - protocol         = "tcp"
+              - security_groups  = []
+              - self             = false
+              - to_port          = 80
+                # (1 unchanged attribute hidden)
+            },
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + from_port        = 3000
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 3000
+                # (1 unchanged attribute hidden)
+            },
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + from_port        = 8080
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 8080
+                # (1 unchanged attribute hidden)
+            },
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + from_port        = 9090
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 9090
+                # (1 unchanged attribute hidden)
+            },
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + from_port        = 80
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 80
+            },
+        ]
+        name                   = "gfg27-sg"
+        tags                   = {}
+        # (9 unchanged attributes hidden)
+    }
+
+Plan: 0 to add, 1 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+aws_security_group.mysg: Modifying... [id=sg-0c1240499d80df14d]
+aws_security_group.mysg: Modifications complete after 0s [id=sg-0c1240499d80df14d]
+
+Apply complete! Resources: 0 added, 1 changed, 0 destroyed.
+
+Outputs:
+
+ec2Ipaddress = "15.206.211.226"
+instance_type = "t3.micro"
+x_value = 5
+
+C:\Users\Meenakshee\OneDrive\Desktop\Minu Documents\DevOpsNotes\DevOpsNotes\Terraform>
