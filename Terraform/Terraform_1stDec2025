@@ -1022,3 +1022,9 @@ output "ec2Ipaddress" {
     value = aws_instance.awsec2new[0].public_ip
       
 }
+
+
+******************************************************************************************************************************************
+*  check in ec2 dashboard security group is created with default name , if you want to provide your own name you can add one more line in 
+*  name        = "gfg27-sg" in security group so that this name will be used
+*******************************************************************************************************************************************
