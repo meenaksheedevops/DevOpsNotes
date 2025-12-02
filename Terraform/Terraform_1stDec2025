@@ -1606,3 +1606,293 @@ instance_type = "t3.micro"
 x_value = 5
 
 C:\Users\Meenakshee\OneDrive\Desktop\Minu Documents\DevOpsNotes\DevOpsNotes\Terraform>
+C:\Users\Meenakshee\OneDrive\Desktop\Minu Documents\DevOpsNotes\DevOpsNotes\Terraform>terraform destroy
+aws_key_pair.gfg27: Refreshing state... [id=gfgdevopsnew]
+aws_security_group.mysg: Refreshing state... [id=sg-0c1240499d80df14d]
+aws_instance.awsec2new[0]: Refreshing state... [id=i-02f3d0b92bfab1388]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the  
+following symbols:
+  - destroy
+
+Terraform will perform the following actions:
+
+  # aws_instance.awsec2new[0] will be destroyed
+  - resource "aws_instance" "awsec2new" {
+      - ami                                  = "ami-0d176f79571d18a8f" -> null
+      - arn                                  = "arn:aws:ec2:ap-south-1:889818959566:instance/i-02f3d0b92bfab1388" -> null
+      - associate_public_ip_address          = true -> null
+      - availability_zone                    = "ap-south-1b" -> null
+      - disable_api_stop                     = false -> null
+      - disable_api_termination              = false -> null
+      - ebs_optimized                        = false -> null
+      - force_destroy                        = false -> null
+      - get_password_data                    = false -> null
+      - hibernation                          = false -> null
+      - id                                   = "i-02f3d0b92bfab1388" -> null
+      - instance_initiated_shutdown_behavior = "stop" -> null
+      - instance_state                       = "running" -> null
+      - instance_type                        = "t3.micro" -> null
+      - ipv6_address_count                   = 0 -> null
+      - ipv6_addresses                       = [] -> null
+      - key_name                             = "gfgdevopsnew" -> null
+      - monitoring                           = false -> null
+      - placement_partition_number           = 0 -> null
+      - primary_network_interface_id         = "eni-03d7d917b8a7e6e64" -> null
+      - private_dns                          = "ip-172-31-13-208.ap-south-1.compute.internal" -> null
+      - private_ip                           = "172.31.13.208" -> null
+      - public_dns                           = "ec2-15-206-211-226.ap-south-1.compute.amazonaws.com" -> null
+      - public_ip                            = "15.206.211.226" -> null
+      - region                               = "ap-south-1" -> null
+      - secondary_private_ips                = [] -> null
+      - security_groups                      = [
+          - "gfg27-sg",
+        ] -> null
+      - source_dest_check                    = true -> null
+      - subnet_id                            = "subnet-0f2f4ae536f8f41b9" -> null
+      - tags                                 = {
+          - "Name" = "EC2-OS"
+        } -> null
+      - tags_all                             = {
+          - "Name" = "EC2-OS"
+        } -> null
+      - tenancy                              = "default" -> null
+      - user_data_replace_on_change          = false -> null
+      - vpc_security_group_ids               = [
+          - "sg-0c1240499d80df14d",
+        ] -> null
+        # (8 unchanged attributes hidden)
+
+      - capacity_reservation_specification {
+          - capacity_reservation_preference = "open" -> null
+        }
+
+      - cpu_options {
+          - core_count       = 1 -> null
+          - threads_per_core = 2 -> null
+            # (1 unchanged attribute hidden)
+        }
+
+      - credit_specification {
+          - cpu_credits = "unlimited" -> null
+        }
+
+      - enclave_options {
+          - enabled = false -> null
+        }
+
+      - maintenance_options {
+          - auto_recovery = "default" -> null
+        }
+
+      - metadata_options {
+          - http_endpoint               = "enabled" -> null
+          - http_protocol_ipv6          = "disabled" -> null
+          - http_put_response_hop_limit = 2 -> null
+          - http_tokens                 = "required" -> null
+          - instance_metadata_tags      = "disabled" -> null
+        }
+
+      - primary_network_interface {
+          - delete_on_termination = true -> null
+          - network_interface_id  = "eni-03d7d917b8a7e6e64" -> null
+        }
+
+      - private_dns_name_options {
+          - enable_resource_name_dns_a_record    = false -> null
+          - enable_resource_name_dns_aaaa_record = false -> null
+          - hostname_type                        = "ip-name" -> null
+        }
+
+      - root_block_device {
+          - delete_on_termination = true -> null
+          - device_name           = "/dev/xvda" -> null
+          - encrypted             = false -> null
+          - iops                  = 3000 -> null
+          - tags                  = {} -> null
+          - tags_all              = {} -> null
+          - throughput            = 125 -> null
+          - volume_id             = "vol-04e5eed22a311d373" -> null
+          - volume_size           = 8 -> null
+          - volume_type           = "gp3" -> null
+            # (1 unchanged attribute hidden)
+        }
+    }
+
+  # aws_key_pair.gfg27 will be destroyed
+  - resource "aws_key_pair" "gfg27" {
+      - arn             = "arn:aws:ec2:ap-south-1:889818959566:key-pair/gfgdevopsnew" -> null
+      - fingerprint     = "d7:ff:a6:63:18:64:9c:57:a1:ee:ca:a4:ad:c2:81:62" -> null
+      - id              = "gfgdevopsnew" -> null
+      - key_name        = "gfgdevopsnew" -> null
+      - key_pair_id     = "key-022098fb820376520" -> null
+      - key_type        = "rsa" -> null
+      - public_key      = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV0LX3X8BsXdMsQz1x2cEikKDEY0aIj41qgxMCP/iteneqXSIFZBp5vizPvaoIR3Um9xK7PGoW8giupGn+EPuxIA4cDM4vzOqOkiMPhz5XK0whEjkVzTo4+S0puvDZuwIsdiW9mxhJc7tgBNL0cYlWSYVkz4G/fslNfRPW5mYAM49f4fhtxPb5ok4Q2Lg9dPKVHO/Bgeu5woMc7RY0p1ej6D4CKFE6lymSDJpW0YHX/wqE9+cfEauh7xZcG0q9t2ta6F6fmX0agvpFyZo8aFbXeUBr7osSCJNgvavWbM/06niWrOvYX2xwWdhXmXSrbX8ZbabVohBK41 email@example.com" -> null
+      - region          = "ap-south-1" -> null
+      - tags            = {} -> null
+      - tags_all        = {} -> null
+        # (1 unchanged attribute hidden)
+    }
+
+  # aws_security_group.mysg will be destroyed
+  - resource "aws_security_group" "mysg" {
+      - arn                    = "arn:aws:ec2:ap-south-1:889818959566:security-group/sg-0c1240499d80df14d" -> null       
+      - description            = "Managed by Terraform" -> null
+      - egress                 = [
+          - {
+              - cidr_blocks      = [
+                  - "0.0.0.0/0",
+                ]
+              - from_port        = 0
+              - ipv6_cidr_blocks = []
+              - prefix_list_ids  = []
+              - protocol         = "-1"
+              - security_groups  = []
+              - self             = false
+              - to_port          = 0
+                # (1 unchanged attribute hidden)
+            },
+        ] -> null
+      - id                     = "sg-0c1240499d80df14d" -> null
+      - ingress                = [
+          - {
+              - cidr_blocks      = [
+                  - "0.0.0.0/0",
+                ]
+              - from_port        = 22
+              - ipv6_cidr_blocks = []
+              - prefix_list_ids  = []
+              - protocol         = "tcp"
+              - security_groups  = []
+              - self             = false
+              - to_port          = 22
+                # (1 unchanged attribute hidden)
+            },
+          - {
+              - cidr_blocks      = [
+                  - "0.0.0.0/0",
+                ]
+              - from_port        = 3000
+              - ipv6_cidr_blocks = []
+              - prefix_list_ids  = []
+              - protocol         = "tcp"
+              - security_groups  = []
+              - self             = false
+              - to_port          = 3000
+                # (1 unchanged attribute hidden)
+            },
+          - {
+              - cidr_blocks      = [
+                  - "0.0.0.0/0",
+                ]
+              - from_port        = 443
+              - ipv6_cidr_blocks = []
+              - prefix_list_ids  = []
+              - protocol         = "tcp"
+              - security_groups  = []
+              - self             = false
+              - to_port          = 443
+                # (1 unchanged attribute hidden)
+            },
+          - {
+              - cidr_blocks      = [
+                  - "0.0.0.0/0",
+                ]
+              - from_port        = 8080
+              - ipv6_cidr_blocks = []
+              - prefix_list_ids  = []
+              - protocol         = "tcp"
+              - security_groups  = []
+              - self             = false
+              - to_port          = 8080
+                # (1 unchanged attribute hidden)
+            },
+          - {
+              - cidr_blocks      = [
+                  - "0.0.0.0/0",
+                ]
+              - from_port        = 80
+              - ipv6_cidr_blocks = []
+              - prefix_list_ids  = []
+              - protocol         = "tcp"
+              - security_groups  = []
+              - self             = false
+              - to_port          = 80
+                # (1 unchanged attribute hidden)
+            },
+          - {
+              - cidr_blocks      = [
+                  - "0.0.0.0/0",
+                ]
+              - from_port        = 82
+              - ipv6_cidr_blocks = []
+              - prefix_list_ids  = []
+              - protocol         = "tcp"
+              - security_groups  = []
+              - self             = false
+              - to_port          = 82
+                # (1 unchanged attribute hidden)
+            },
+          - {
+              - cidr_blocks      = [
+                  - "0.0.0.0/0",
+                ]
+              - from_port        = 83
+              - ipv6_cidr_blocks = []
+              - prefix_list_ids  = []
+              - protocol         = "tcp"
+              - security_groups  = []
+              - self             = false
+              - to_port          = 83
+                # (1 unchanged attribute hidden)
+            },
+          - {
+              - cidr_blocks      = [
+                  - "0.0.0.0/0",
+                ]
+              - from_port        = 9090
+              - ipv6_cidr_blocks = []
+              - prefix_list_ids  = []
+              - protocol         = "tcp"
+              - security_groups  = []
+              - self             = false
+              - to_port          = 9090
+                # (1 unchanged attribute hidden)
+            },
+        ] -> null
+      - name                   = "gfg27-sg" -> null
+      - owner_id               = "889818959566" -> null
+      - region                 = "ap-south-1" -> null
+      - revoke_rules_on_delete = false -> null
+      - tags                   = {} -> null
+      - tags_all               = {} -> null
+      - vpc_id                 = "vpc-0b9835c50d6c17d29" -> null
+        # (1 unchanged attribute hidden)
+    }
+
+Plan: 0 to add, 0 to change, 3 to destroy.
+
+Changes to Outputs:
+  - ec2Ipaddress  = "15.206.211.226" -> null
+  - instance_type = "t3.micro" -> null
+  - x_value       = 5 -> null
+
+Do you really want to destroy all resources?
+  Terraform will destroy all your managed infrastructure, as shown above.
+  There is no undo. Only 'yes' will be accepted to confirm.
+
+  Enter a value: yes
+
+aws_instance.awsec2new[0]: Destroying... [id=i-02f3d0b92bfab1388]
+aws_instance.awsec2new[0]: Still destroying... [id=i-02f3d0b92bfab1388, 00m10s elapsed]
+aws_instance.awsec2new[0]: Still destroying... [id=i-02f3d0b92bfab1388, 00m20s elapsed]
+aws_instance.awsec2new[0]: Still destroying... [id=i-02f3d0b92bfab1388, 00m30s elapsed]
+aws_instance.awsec2new[0]: Destruction complete after 40s
+aws_key_pair.gfg27: Destroying... [id=gfgdevopsnew]
+aws_security_group.mysg: Destroying... [id=sg-0c1240499d80df14d]
+aws_key_pair.gfg27: Destruction complete after 0s
+aws_security_group.mysg: Destruction complete after 1s
+
+Destroy complete! Resources: 3 destroyed.
+
+C:\Users\Meenakshee\OneDrive\Desktop\Minu Documents\DevOpsNotes\DevOpsNotes\Terraform>
