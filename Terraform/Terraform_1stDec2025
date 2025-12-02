@@ -1076,3 +1076,49 @@ instance_type = "t3.micro"
 x_value = 5
 
 C:\Users\Meenakshee\OneDrive\Desktop\Minu Documents\DevOpsNotes\DevOpsNotes\Terraform>
+C:\Users\Meenakshee\OneDrive\Desktop\Minu Documents\DevOpsNotes\DevOpsNotes\Terraform>terraform apply
+aws_key_pair.gfg27: Refreshing state... [id=gfgdevopsnew]
+aws_security_group.mysg: Refreshing state... [id=sg-0c1240499d80df14d]
+aws_instance.awsec2new[0]: Refreshing state... [id=i-02f3d0b92bfab1388]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the  
+following symbols:
+  ~ update in-place
+
+Terraform will perform the following actions:
+
+  # aws_instance.awsec2new[0] will be updated in-place
+  ~ resource "aws_instance" "awsec2new" {
+        id                                   = "i-02f3d0b92bfab1388"
+        tags                                 = {
+            "Name" = "EC2-OS"
+        }
+      ~ vpc_security_group_ids               = [
+          - "sg-03f5274dad4c0e0cd",
+          + "sg-0c1240499d80df14d",
+        ]
+        # (39 unchanged attributes hidden)
+
+        # (9 unchanged blocks hidden)
+    }
+
+Plan: 0 to add, 1 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+aws_instance.awsec2new[0]: Modifying... [id=i-02f3d0b92bfab1388]
+aws_instance.awsec2new[0]: Modifications complete after 2s [id=i-02f3d0b92bfab1388]
+
+Apply complete! Resources: 0 added, 1 changed, 0 destroyed.
+
+Outputs:
+
+ec2Ipaddress = "15.206.211.226"
+instance_type = "t3.micro"
+x_value = 5
+
+C:\Users\Meenakshee\OneDrive\Desktop\Minu Documents\DevOpsNotes\DevOpsNotes\Terraform>
