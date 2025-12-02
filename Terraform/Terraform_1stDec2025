@@ -786,3 +786,190 @@ instance_type = "t3.micro"
 x_value = 5
 
 C:\Users\Meenakshee\OneDrive\Desktop\Minu Documents\DevOpsNotes\DevOpsNotes\Terraform>
+
+
+*************************************************************************************************************************************************
+*  New Terraform practice on 2nd Dec 2025
+************************************************************************************************************************************************
+
+C:\Users\Meenakshee\OneDrive\Desktop\Minu Documents\DevOpsNotes\DevOpsNotes\Terraform>terraform apply
+aws_key_pair.gfg27: Refreshing state... [id=gfgdevopsnew]
+aws_instance.awsec2new[1]: Refreshing state... [id=i-0ec276c0b7526af68]
+aws_instance.awsec2new[0]: Refreshing state... [id=i-0a437d60adebac6a8]
+
+Note: Objects have changed outside of Terraform
+
+Terraform detected the following changes made outside of Terraform since the last "terraform apply" which may have       
+affected this plan:
+
+  # aws_instance.awsec2new[0] has been deleted
+  - resource "aws_instance" "awsec2new" {
+        id                                   = "i-0a437d60adebac6a8"
+      - public_ip                            = "15.206.147.216" -> null
+        tags                                 = {
+            "Name" = "EC2-OS"
+        }
+        # (39 unchanged attributes hidden)
+
+        # (9 unchanged blocks hidden)
+    }
+
+
+Unless you have made equivalent changes to your configuration, or ignored the relevant attributes using ignore_changes,  
+the following plan may include actions to undo or respond to these changes.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── 
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the  
+following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_instance.awsec2new[0] will be created
+  + resource "aws_instance" "awsec2new" {
+      + ami                                  = "ami-0d176f79571d18a8f"
+      + arn                                  = (known after apply)
+      + associate_public_ip_address          = (known after apply)
+      + availability_zone                    = (known after apply)
+      + disable_api_stop                     = (known after apply)
+      + disable_api_termination              = (known after apply)
+      + ebs_optimized                        = (known after apply)
+      + enable_primary_ipv6                  = (known after apply)
+      + force_destroy                        = false
+      + get_password_data                    = false
+      + host_id                              = (known after apply)
+      + host_resource_group_arn              = (known after apply)
+      + iam_instance_profile                 = (known after apply)
+      + id                                   = (known after apply)
+      + instance_initiated_shutdown_behavior = (known after apply)
+      + instance_lifecycle                   = (known after apply)
+      + instance_state                       = (known after apply)
+      + instance_type                        = "t3.micro"
+      + ipv6_address_count                   = (known after apply)
+      + ipv6_addresses                       = (known after apply)
+      + key_name                             = "gfgdevopsnew"
+      + monitoring                           = (known after apply)
+      + outpost_arn                          = (known after apply)
+      + password_data                        = (known after apply)
+      + placement_group                      = (known after apply)
+      + placement_group_id                   = (known after apply)
+      + placement_partition_number           = (known after apply)
+      + primary_network_interface_id         = (known after apply)
+      + private_dns                          = (known after apply)
+      + private_ip                           = (known after apply)
+      + public_dns                           = (known after apply)
+      + public_ip                            = (known after apply)
+      + region                               = "ap-south-1"
+      + secondary_private_ips                = (known after apply)
+      + security_groups                      = (known after apply)
+      + source_dest_check                    = true
+      + spot_instance_request_id             = (known after apply)
+      + subnet_id                            = (known after apply)
+      + tags                                 = {
+          + "Name" = "EC2-OS"
+        }
+      + tags_all                             = {
+          + "Name" = "EC2-OS"
+        }
+      + tenancy                              = (known after apply)
+      + user_data_base64                     = (known after apply)
+      + user_data_replace_on_change          = false
+      + vpc_security_group_ids               = (known after apply)
+
+      + capacity_reservation_specification (known after apply)
+
+      + cpu_options (known after apply)
+
+      + ebs_block_device (known after apply)
+
+      + enclave_options (known after apply)
+
+      + ephemeral_block_device (known after apply)
+
+      + instance_market_options (known after apply)
+
+      + maintenance_options (known after apply)
+
+      + metadata_options (known after apply)
+
+      + network_interface (known after apply)
+
+      + primary_network_interface (known after apply)
+
+      + private_dns_name_options (known after apply)
+
+      + root_block_device (known after apply)
+    }
+
+  # aws_security_group.mysg will be created
+  + resource "aws_security_group" "mysg" {
+      + arn                    = (known after apply)
+      + description            = "Managed by Terraform"
+      + egress                 = [
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + from_port        = 0
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "-1"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 0
+                # (1 unchanged attribute hidden)
+            },
+        ]
+      + id                     = (known after apply)
+      + ingress                = [
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + from_port        = 80
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 90
+                # (1 unchanged attribute hidden)
+            },
+        ]
+      + name                   = (known after apply)
+      + name_prefix            = (known after apply)
+      + owner_id               = (known after apply)
+      + region                 = "ap-south-1"
+      + revoke_rules_on_delete = false
+      + tags_all               = (known after apply)
+      + vpc_id                 = (known after apply)
+    }
+
+Plan: 2 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  ~ ec2Ipaddress  = "15.206.147.216" -> (known after apply)
+  - ec2Ipaddress1 = "13.232.181.19" -> null
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+aws_security_group.mysg: Creating...
+aws_instance.awsec2new[0]: Creating...
+aws_security_group.mysg: Creation complete after 2s [id=sg-00c3a8c64e7ee7628]
+aws_instance.awsec2new[0]: Still creating... [00m10s elapsed]
+aws_instance.awsec2new[0]: Creation complete after 12s [id=i-02f3d0b92bfab1388]
+
+Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+ec2Ipaddress = "15.206.211.226"
+instance_type = "t3.micro"
+x_value = 5
+
+C:\Users\Meenakshee\OneDrive\Desktop\Minu Documents\DevOpsNotes\DevOpsNotes\Terraform>
