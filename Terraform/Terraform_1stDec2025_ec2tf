@@ -1,0 +1,93 @@
+
+********************************************************************************************************************************************************
+* Reference files for 1stDec2025Practice
+*********************************************************************************************************************************************************
+
+*****************************************************************************************************************************************************
+**  ec2.tf
+*****************************************************************************************************************************************************
+resource "aws_instance" "awsec2new" {
+  ami                     = var.amiId
+  instance_type           = var.instance_type
+  key_name                = aws_key_pair.gfg27.key_name
+  tags = {
+    Name = var.Name
+  }
+  count = 2
+}
+resource "aws_key_pair" "gfg27" {
+  key_name   = var.key_name
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV0LX3X8BsXdMsQz1x2cEikKDEY0aIj41qgxMCP/iteneqXSIFZBp5vizPvaoIR3Um9xK7PGoW8giupGn+EPuxIA4cDM4vzOqOkiMPhz5XK0whEjkVzTo4+S0puvDZuwIsdiW9mxhJc7tgBNL0cYlWSYVkz4G/fslNfRPW5mYAM49f4fhtxPb5ok4Q2Lg9dPKVHO/Bgeu5woMc7RY0p1ej6D4CKFE6lymSDJpW0YHX/wqE9+cfEauh7xZcG0q9t2ta6F6fmX0agvpFyZo8aFbXeUBr7osSCJNgvavWbM/06niWrOvYX2xwWdhXmXSrbX8ZbabVohBK41 email@example.com"
+}
+
+*******************************************************************************************************************************************************
+** provider.tf
+*******************************************************************************************************************************************************
+
+terraform {
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      version = "6.23.0"
+    }
+  }
+}
+
+provider "aws" {
+  # Configuration options
+  region = "ap-south-1"
+  profile = "default"
+}
+
+*******************************************************************************************************************************************************
+** var.tf
+********************************************************************************************************************************************************
+
+variable "key_name" {
+    type = string
+    default = "gfgdevopsnew"
+  
+}
+
+variable "x" {
+    type = string
+    default = "hello"
+  
+}
+
+variable "instance_type" {
+  type = string
+  default = "t3.micro"
+}
+
+variable "Name" {
+  type = string
+  default = "EC2-OS"
+}
+
+variable "amiId" {
+  type = string
+  default = "ami-0d176f79571d18a8f"
+}
+
+********************************************************************************************************************************************************************
+** output.tf
+********************************************************************************************************************************************************************
+
+output "x_value" {
+  value = 5
+}
+
+output "instance_type" {
+  value = var.instance_type
+}
+
+output "ec2Ipaddress" {
+    value = aws_instance.awsec2new[0].public_ip
+      
+}
+
+output "ec2Ipaddress1" {
+    value = aws_instance.awsec2new[1].public_ip
+      
+}
